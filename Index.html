@@ -1,215 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Ten Solutions – Free CBSE Study Platform (9–12)</title>
-<meta name="description" content="Free NCERT Books, Solutions, Sample Papers, Previous Year Papers, Revision Notes & AI Assistant for CBSE">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-font-family:Segoe UI,Tahoma,Verdana,sans-serif;
-background:#f4f6f9;
-color:#333;
-min-height:100vh;
-padding-bottom:140px;
-}
-header{background:#2c3e50;color:#fff;padding:1rem}
-.logo{font-size:1.8rem;font-weight:bold}
-.logo span{color:#3498db}
-.top-bar{max-width:1300px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-nav{background:#34495e}
-.main-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;padding:1rem}
-.main-nav a{color:#fff;text-decoration:none;padding:.6rem 1.2rem;border-radius:4px}
-.main-nav a:hover{background:#2c3e50}
-main{max-width:1200px;margin:2rem auto;padding:0 1rem}
-.page-title{text-align:center;font-size:3rem;margin:2rem 0;color:#2c3e50}
-.box{background:#fff;padding:2rem;border-radius:8px;box-shadow:0 4px 15px rgba(0,0,0,.05);margin-bottom:3rem}
-
-footer{text-align:center;background:#2c3e50;color:#fff;padding:1.5rem}
-
-/* Floating AI Button */
-.fab{
-position:fixed;
-right:30px;
-bottom:30px;
-width:60px;
-height:60px;
-background:#3498db;
-border-radius:50%;
-color:#fff;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:26px;
-cursor:pointer;
-box-shadow:0 4px 15px rgba(0,0,0,.3);
-z-index:1000
-}
-.fab:hover{transform:scale(1.1)}
-
-/* AI Modal */
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.6);
-align-items:center;
-justify-content:center;
-z-index:2000
-}
-.modal-content{
-background:#fff;
-width:90%;
-max-width:450px;
-padding:1.8rem;
-border-radius:10px;
-position:relative
-}
-.close{
-position:absolute;
-top:10px;
-right:15px;
-font-size:24px;
-cursor:pointer
-}
-#chatHistory{
-height:300px;
-overflow-y:auto;
-border:1px solid #ddd;
-padding:10px;
-border-radius:6px;
-margin-bottom:10px;
-display:flex;
-flex-direction:column
-}
-.message{max-width:85%;padding:8px 12px;border-radius:16px;margin:6px 0}
-.user-msg{background:#3498db;color:#fff;align-self:flex-end}
-.ai-msg{background:#e0e0e0;color:#333;align-self:flex-start}
-
-#aiForm{display:flex;gap:8px}
-#aiInput{
-flex:1;
-padding:10px;
-border:1px solid #ccc;
-border-radius:6px
-}
-#aiSend{
-padding:10px 16px;
-background:#3498db;
-color:#fff;
-border:none;
-border-radius:6px;
-cursor:pointer
-}
-</style>
+    <title>Ten Solutions – Free CBSE Study Platform (9–12)</title>
+    <meta
+        name="description"
+        content="Free NCERT Books, Solutions, Sample Papers, Previous Year Papers, Revision Notes & AI Assistant for CBSE"
+    />
 </head>
 
 <body>
 
-<header>
-<div class="top-bar">
-<div class="logo">Ten <span>Solutions</span></div>
-<div>Free CBSE Study Platform (Class 9–12)</div>
-</div>
-</header>
+    <!-- ================= HEADER ================= -->
+    <header>
+        <div class="top-bar">
+            <div class="logo">
+                Ten <span>Solutions</span>
+            </div>
 
-<nav>
-<div class="main-nav">
-<a href="#">Home</a>
-<a href="#">NCERT Books</a>
-<a href="#">Solutions</a>
-<a href="#">Sample Papers</a>
-<a href="#">Revision Notes</a>
-</div>
-</nav>
+            <div class="tagline">
+                Free CBSE Study Platform (Class 9–12)
+            </div>
+        </div>
+    </header>
 
-<main>
-<h1 class="page-title">Ten Solutions</h1>
+    <!-- ================= NAVIGATION ================= -->
+    <nav>
+        <div class="main-nav">
+            <a href="#home">Home</a>
+            <a href="#books">NCERT Books</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#sample-papers">Sample Papers</a>
+            <a href="#revision-notes">Revision Notes</a>
+        </div>
+    </nav>
 
-<div class="box">
-<p>
-Free study platform for CBSE students (Classes 9–12).  
-Access NCERT books, solutions, sample papers, previous year papers and ask doubts using AI.
-</p>
-</div>
+    <!-- ================= MAIN CONTENT ================= -->
+    <main>
 
-<div class="box">
-<h2>Why Ten Solutions?</h2>
-<ul>
-<li>100% Free & Ad-Free</li>
-<li>Official NCERT & CBSE links</li>
-<li>Student-friendly AI assistant</li>
-<li>Mobile & Desktop supported</li>
-</ul>
-</div>
-</main>
+        <!-- Home -->
+        <section id="home">
+            <h1 class="page-title">Ten Solutions</h1>
 
-<footer>
-© 2026 Ten Solutions • Built for CBSE Students
-</footer>
+            <div class="intro-box">
+                <p>
+                    Free CBSE study platform for Classes 9–12.
+                    Access NCERT books, solutions, sample papers,
+                    previous year question papers, revision notes,
+                    and an AI assistant — all in one place.
+                </p>
+            </div>
+        </section>
 
-<!-- AI Floating Button -->
-<div class="fab" title="Ask AI" onclick="openAI()">🤖</div>
+        <!-- About -->
+        <section id="about" class="about-section">
+            <h2>About Ten Solutions</h2>
 
-<!-- AI Modal -->
-<div class="modal" id="aiModal">
-<div class="modal-content">
-<span class="close" onclick="closeAI()">×</span>
-<h3>Ask CBSE AI</h3>
+            <p>
+                <strong>Ten Solutions</strong> is a completely free,
+                student-first EdTech platform designed to help CBSE
+                students study smarter and score better.
+            </p>
 
-<div id="chatHistory"></div>
+            <h3>Our Mission</h3>
+            <p>
+                To provide high-quality, reliable CBSE learning
+                resources without ads, fees, or distractions.
+            </p>
+        </section>
 
-<form id="aiForm">
-<input id="aiInput" placeholder="Ask any NCERT question..." required>
-<button id="aiSend">Send</button>
-</form>
-</div>
-</div>
+        <!-- NCERT Books -->
+        <section id="books" class="class-section">
+            <h2>NCERT Books (2025–26)</h2>
 
-<script>
-const modal=document.getElementById("aiModal");
-const chatHistory=document.getElementById("chatHistory");
-const aiForm=document.getElementById("aiForm");
-const aiInput=document.getElementById("aiInput");
+            <h3>Class 9</h3>
+            <ul>
+                <li><a href="#">Mathematics</a></li>
+                <li><a href="#">Science</a></li>
+                <li><a href="#">English</a></li>
+            </ul>
 
-function openAI(){modal.style.display="flex"}
-function closeAI(){modal.style.display="none"}
+            <h3>Class 10</h3>
+            <ul>
+                <li><a href="#">Mathematics</a></li>
+                <li><a href="#">Science</a></li>
+                <li><a href="#">English</a></li>
+            </ul>
+        </section>
 
-aiForm.addEventListener("submit",async e=>{
-e.preventDefault();
-const msg=aiInput.value.trim();
-if(!msg)return;
+    </main>
 
-addMsg(msg,"user");
-aiInput.value="";
-addMsg("Thinking...","ai");
-
-try{
-const res=await fetch("/api/ai",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({message:msg})
-});
-const data=await res.json();
-chatHistory.lastChild.remove();
-addMsg(data.reply||"No response","ai");
-}catch{
-chatHistory.lastChild.remove();
-addMsg("AI server not connected","ai");
-}
-});
-
-function addMsg(text,type){
-const div=document.createElement("div");
-div.className="message "+(type==="user"?"user-msg":"ai-msg");
-div.innerText=text;
-chatHistory.appendChild(div);
-chatHistory.scrollTop=chatHistory.scrollHeight;
-}
-</script>
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <p>© 2026 Ten Solutions • Free CBSE Education</p>
+    </footer>
 
 </body>
 </html>
