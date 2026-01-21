@@ -4,5 +4,8 @@
   "type": "module",
   "dependencies": {
     "openai": "^4.30.0"
-  }
+  "scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build"
+
 }
