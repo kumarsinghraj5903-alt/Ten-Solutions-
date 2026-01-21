@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ten Solutions – Free CBSE Study Platform (9–12)</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+    font-family:Segoe UI,Tahoma,Verdana,sans-serif;
+    background:#f4f6f9;
+    color:#333;
+    padding-bottom:120px
+}
+header{
+    background:#2c3e50;
+    color:#fff;
+    padding:1rem;
+    text-align:center;
+    font-size:1.8rem;
+    font-weight:bold
+}
+header span{color:#3498db}
+main{
+    max-width:1100px;
+    margin:2rem auto;
+    padding:0 1.5rem
+}
+.section{
+    background:#fff;
+    padding:2rem;
+    margin-bottom:2.5rem;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,.05)
+}
+.section h2{
+    margin-bottom:1rem;
+    color:#2c3e50
+}
+.section p{
+    line-height:1.8;
+    font-size:1.05rem
+}
+
+/* Floating AI Button */
+.ai-btn{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    border:none;
+    background:#3498db;
+    color:#fff;
+    font-size:30px;
+    cursor:pointer;
+    box-shadow:0 6px 20px rgba(0,0,0,.3);
+    z-index:1000
+}
+
+/* Modal */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+    justify-content:center;
+    align-items:center;
+    z-index:2000
+}
+.modal-content{
+    background:#fff;
+    width:95%;
+    max-width:500px;
+    border-radius:12px;
+    padding:1.5rem;
+    display:flex;
+    flex-direction:column;
+    height:520px
+}
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:.5rem
+}
+.modal-header h3{color:#2c3e50}
+.close{
+    font-size:28px;
+    cursor:pointer;
+    color:#888
+}
+
+/* Chat */
+#chatHistory{
+    flex:1;
+    overflow-y:auto;
+    background:#f9f9f9;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ddd
+}
+.message{
+    max-width:85%;
+    padding:10px 14px;
+    margin:8px 0;
+    border-radius:16px;
+    font-size:.95rem
+}
+.user-msg{
+    background:#3498db;
+    color:#fff;
+    align-self:flex-end
+}
+.ai-msg{
+    background:#e0e0e0;
+    align-self:flex-start
+}
+
+/* Input */
+#aiForm{
+    display:flex;
+    gap:10px;
+    margin-top:10px
+}
+#aiInput{
+    flex:1;
+    padding:10px;
+    font-size:1rem;
+    border-radius:6px;
+    border:1px solid #ccc
+}
+#aiSend{
+    padding:10px 18px;
+    border:none;
+    background:#3498db;
+    color:#fff;
+    border-radius:6px;
+    cursor:pointer
+}
+
+footer{
+    text-align:center;
+    padding:1.5rem;
+    background:#2c3e50;
+    color:#fff
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    Ten <span>Solutions</span>
+</header>
+
+<main>
+
+<div class="section">
+<h2>Free CBSE Study Platform (Classes 9–12)</h2>
+<p>
+Access NCERT books, solutions, sample papers, previous year questions,
+revision notes and an AI assistant – all in one place, completely free.
+</p>
+</div>
+
+<div class="section">
+<h2>AI Assistant</h2>
+<p>
+Click the 🤖 button to ask any NCERT question.  
+Get exam-ready explanations, summaries, derivations and solved answers.
+</p>
+</div>
+
+</main>
+
+<footer>
+© 2026 Ten Solutions – CBSE Learning Made Easy
+</footer>
+
+<!-- Floating Button -->
+<button class="ai-btn" id="aiBtn">🤖</button>
+
+<!-- AI Modal -->
+<div class="modal" id="aiModal">
+<div class="modal-content">
+    <div class="modal-header">
+        <h3>Ten Solutions AI Assistant</h3>
+        <span class="close" id="aiClose">&times;</span>
+    </div>
+
+    <div id="chatHistory">
+        <div class="message ai-msg">
+            Hello 👋<br>
+            I’m your CBSE NCERT AI assistant for Classes 9–12.<br>
+            Ask me any question 📘
+        </div>
+    </div>
+
+    <form id="aiForm">
+        <input id="aiInput" type="text" placeholder="Ask your question..." required>
+        <button id="aiSend" type="submit">Send</button>
+    </form>
+</div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+const aiBtn = document.getElementById("aiBtn");
+const aiModal = document.getElementById("aiModal");
+const aiClose = document.getElementById("aiClose");
+const chatHistory = document.getElementById("chatHistory");
+const aiForm = document.getElementById("aiForm");
+const aiInput = document.getElementById("aiInput");
+
+aiBtn.onclick = () => {
+    aiModal.style.display = "flex";
+    aiInput.focus();
+};
+
+aiClose.onclick = () => {
+    aiModal.style.display = "none";
+};
+
+function addMessage(text, type){
+    const div = document.createElement("div");
+    div.className = "message " + type + "-msg";
+    div.innerHTML = text;
+    chatHistory.appendChild(div);
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+}
+
+function showTyping(){
+    addMessage("AI is typing… ✍️","ai");
+}
+
+function removeTyping(){
+    const last = chatHistory.lastChild;
+    if(last && last.innerText.includes("typing")) last.remove();
+}
+
+aiForm.addEventListener("submit", async e => {
+    e.preventDefault();
+    const question = aiInput.value.trim();
+    if(!question) return;
+
+    addMessage(question,"user");
+    aiInput.value = "";
+    showTyping();
+
+    try{
+        const res = await fetch("/api/chat",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({
+                message:question,
+                context:"CBSE NCERT Student Classes 9-12"
+            })
+        });
+
+        const data = await res.json();
+        removeTyping();
+
+        if(!data.reply) throw new Error("No reply");
+        addMessage(data.reply.replace(/\n/g,"<br>"),"ai");
+
+    }catch(err){
+        removeTyping();
+        addMessage("⚠️ AI server unavailable. Please try again later.","ai");
+        console.error(err);
+    }
+});
+
+});
+</script>
+
+</body>
+</html>
