@@ -34,5 +34,5 @@ Context: ${context}`
   } catch (err) {
     console.error(err);
     res.status(500).json({ reply: "Server error" });
-  }
+ ("/api/chat",  }
 }
