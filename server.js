@@ -41,6 +41,11 @@ Context: ${context}`
       reply: 'AI server error. Please try again later.'
     });
   }
+fetch("https://your-project.vercel.app/api/chat", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(...)
+
 });
 
 export default app;
