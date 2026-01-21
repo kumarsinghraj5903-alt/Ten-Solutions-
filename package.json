@@ -1,8 +1,16 @@
 {
   "name": "ten-solutions-ai",
   "version": "1.0.0",
+  "description": "Ten Solutions AI Assistant for CBSE NCERT Students (Classes 9-12)",
   "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "vercel dev"
+  },
   "dependencies": {
     "openai": "^4.30.0"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
