@@ -1,38 +1,66 @@
 import OpenAI from "openai";
 
+/**
+ * Initialize OpenAI client
+ * Uses OPENAI_API_KEY from Vercel Environment Variables
+ */
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
+
+/**
+ * Vercel Serverless Function
+ */
 export default async function handler(req, res) {
+  // Allow only POST requests
   if (req.method !== "POST") {
-    return res.status(405).send("Method not allowed");
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
-    const openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY
-    });
-
     const { message, context, memory } = req.body;
 
+    // Basic validation
+    if (!message) {
+      return res.status(400).json({ error: "Message is required" });
+    }
+
+    // Build chat messages
     const messages = [
       {
         role: "system",
-        content: `You are a CBSE NCERT teacher.
-Context: ${context}`
+        content: `You are an expert CBSE NCERT teacher for Classes 9–12.
+Explain answers clearly, step-by-step, exam-oriented.
+Context: ${context || "CBSE Student"}`
       },
-      ...(memory || []),
-      { role: "user", content: message }
+      ...(Array.isArray(memory) ? memory : []),
+      {
+        role: "user",
+        content: message
+      }
     ];
 
+    // Call OpenAI
     const completion = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
-      messages
+      model: "gpt-4o-mini",
+      messages,
+      temperature: 0.4,
+      max_tokens: 600
     });
 
-    res.status(200).json({
-      reply: completion.choices[0].message.content
-    });
+    const reply =
+      completion.choices?.[0]?.message?.content ||
+      "Sorry, I could not generate a response.";
 
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ reply: "Server error" });
+    // Send response
+    return res.status(200).json({ reply });
+
+  } catch (error) {
+    console.error("AI API Error:", error);
+
+    return res.status(500).json({
+      error: "AI server error",
+      details: error.message
+    });
   }
 }
