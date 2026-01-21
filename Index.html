@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ten Solutions – Free CBSE Study Platform (9–12)</title>
+    <meta name="description" content="Free NCERT Books, Solutions, Sample Papers, Previous Year Papers, Revision Notes & AI Assistant for CBSE 2025-26">
+
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background:#f4f6f9;
+            color:#333;
+            min-height:100vh;
+            padding-bottom:140px;
+        }
+        header {
+            background:#2c3e50;
+            color:white;
+            padding:1rem 0;
+            box-shadow:0 2px 10px rgba(0,0,0,0.1);
+        }
+        .top-bar {
+            max-width:1300px;
+            margin:0 auto;
+            padding:0 2rem;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+            gap:1rem;
+        }
+        .logo { font-size:1.8rem; font-weight:bold; }
+        .logo span { color:#3498db; }
+        .user-actions { display:flex; align-items:center; gap:1rem; }
+        .user-actions button {
+            background:#3498db;
+            color:white;
+            border:none;
+            padding:0.6rem 1.2rem;
+            border-radius:6px;
+            cursor:pointer;
+            font-weight:bold;
+            transition:background 0.3s;
+        }
+        .user-actions button:hover { background:#2980b9; }
+        .logout-btn { background:#e74c3c !important; }
+        .logout-btn:hover { background:#c0392b !important; }
+        .class-menu { display:flex; gap:1rem; flex-wrap:wrap; }
+        .dropdown { position:relative; }
+        .dropbtn {
+            color:white;
+            padding:0.5rem 1rem;
+            border-radius:4px;
+            cursor:pointer;
+        }
+        .dropbtn:hover { background:#34495e; }
+        .dropdown-content {
+            display:none;
+            position:absolute;
+            background:white;
+            min-width:180px;
+            box-shadow:0 8px 16px rgba(0,0,0,0.2);
+            border-radius:4px;
+            top:100%;
+            left:0;
+            z-index:10;
+        }
+        .dropdown:hover .dropdown-content { display:block; }
+        .dropdown-content a {
+            color:#333;
+            padding:12px 16px;
+            display:block;
+            text-decoration:none;
+        }
+        .dropdown-content a:hover { background:#f0f0f0; }
+        nav {
+            background:#34495e;
+            padding:1rem 0;
+        }
+        .main-nav {
+            max-width:1300px;
+            margin:0 auto;
+            padding:0 2rem;
+            display:flex;
+            gap:1.5rem;
+            flex-wrap:wrap;
+            justify-content:center;
+        }
+        .main-nav a {
+            color:white;
+            text-decoration:none;
+            padding:0.8rem 1.5rem;
+            border-radius:4px;
+            transition:background 0.3s;
+        }
+        .main-nav a:hover, .main-nav a.active { background:#2c3e50; }
+        main {
+            max-width:1300px;
+            margin:2rem auto;
+            padding:0 2rem;
+        }
+        .page-title {
+            font-size:3rem;
+            color:#2c3e50;
+            margin:3rem 0 2rem;
+            text-align:center;
+        }
+        .intro-box, .about-section, .class-section {
+            background:white;
+            padding:2.5rem;
+            border-radius:8px;
+            box-shadow:0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom:4rem;
+            line-height:1.8;
+            font-size:1.15rem;
+        }
+        .about-section h2 {
+            font-size:2.4rem;
+            color:#2c3e50;
+            margin-bottom:1.5rem;
+            text-align:center;
+        }
+        .about-section h3 {
+            font-size:1.8rem;
+            color:#2c3e50;
+            margin:2rem 0 1rem;
+        }
+        .about-section ul {
+            margin:1rem 0;
+            padding-left:2rem;
+        }
+        .class-section h2 {
+            font-size:2.2rem;
+            color:#2c3e50;
+            margin-bottom:1.5rem;
+            border-bottom:3px solid #3498db;
+            padding-bottom:0.5rem;
+        }
+        .class-section h3 {
+            font-size:1.6rem;
+            color:#2c3e50;
+            margin:1.5rem 0 1rem;
+        }
+        .book-list, .subject-list { list-style:none; }
+        .book-list li, .subject-list li { margin:1.2rem 0; font-size:1.15rem; }
+        .book-list a, .subject-list a {
+            color:#3498db;
+            text-decoration:none;
+            font-weight:500;
+        }
+        .book-list a:hover, .subject-list a:hover {
+            color:#2980b9;
+            text-decoration:underline;
+        }
+        footer {
+            text-align:center;
+            padding:2rem;
+            background:#2c3e50;
+            color:white;
+            margin-top:4rem;
+        }
+
+        /* Floating buttons */
+        .fab {
+            position: fixed;
+            width: 65px;
+            height: 65px;
+            color: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        .support-btn {
+            bottom: 110px;
+            left: 30px;
+            background: #27ae60;
+        }
+        .ai-btn {
+            bottom: 30px;
+            right: 30px;
+            background: #3498db;
+        }
+        .fab:hover { transform: scale(1.1); }
+        .fab:hover::after {
+            content: attr(title);
+            position: absolute;
+            bottom: 80px;
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 1001;
+        }
+        .support-btn:hover::after { left: 0; }
+        .ai-btn:hover::after { right: 0; }
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+        .modal-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+        }
+        .close:hover { color: #000; }
+        .modal h2 { text-align: center; margin-bottom: 1.5rem; color: #2c3e50; }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        .form-btn {
+            width: 100%;
+            padding: 0.9rem;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .form-btn:hover { background: #2980b9; }
+        .switch-link {
+            text-align: center;
+            margin-top: 1rem;
+            color: #3498db;
+            cursor: pointer;
+        }
+        .switch-link:hover { text-decoration: underline; }
+        .welcome-msg { color: white; font-weight: bold; }
+
+        #chatHistory {
+            height: 350px;
+            overflow-y: auto;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+        }
+        .message {
+            max-width: 85%;
+            padding: 10px 14px;
+            border-radius: 18px;
+            margin: 8px 0;
+            word-wrap: break-word;
+        }
+        .user-msg { background: #3498db; color: white; align-self: flex-end; }
+        .ai-msg { background: #e0e0e0; color: #333; align-self: flex-start; }
+        #aiForm { display: flex; gap: 10px; }
+        #aiInput {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        #aiSend {
+            padding: 12px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .top-bar { flex-direction: column; }
+            .main-nav { flex-direction: column; align-items: center; }
+            .page-title { font-size: 2.5rem; }
+            .fab { width: 55px; height: 55px; font-size: 24px; }
+            .support-btn { bottom: 90px; left: 20px; }
+            .ai-btn { bottom: 20px; right: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="top-bar">
+        <div class="logo">Ten <span>Solutions</span></div>
+        <div class="user-actions" id="userActions">
+            <button id="loginBtn">Login</button>
+            <button id="registerBtn">Register</button>
+        </div>
+        <div class="class-menu">
+            <div class="dropdown">
+                <div class="dropbtn">Class 12 ▼</div>
+                <div class="dropdown-content">
+                    <a href="https://ncert.nic.in/textbook.php?leph1=0-8" target="_blank">Physics</a>
+                    <a href="https://ncert.nic.in/textbook.php?lech1=0-8" target="_blank">Chemistry</a>
+                    <a href="https://ncert.nic.in/textbook.php?lemh1=0-9" target="_blank">Mathematics</a>
+                    <a href="https://ncert.nic.in/textbook.php?lebo1=0-13" target="_blank">Biology</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <div class="dropbtn">Class 11 ▼</div>
+                <div class="dropdown-content">
+                    <a href="https://ncert.nic.in/textbook.php?keph1=0-8" target="_blank">Physics</a>
+                    <a href="https://ncert.nic.in/textbook.php?kech1=0-8" target="_blank">Chemistry</a>
+                    <a href="https://ncert.nic.in/textbook.php?kemh1=0-16" target="_blank">Mathematics</a>
+                    <a href="https://ncert.nic.in/textbook.php?kebo1=0-9" target="_blank">Biology</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <div class="dropbtn">Class 10 ▼</div>
+                <div class="dropdown-content">
+                    <a href="https://ncert.nic.in/textbook.php?jesc1=0-16" target="_blank">Science</a>
+                    <a href="https://ncert.nic.in/textbook.php?jemh1=0-15" target="_blank">Mathematics</a>
+                    <a href="https://ncert.nic.in/textbook.php?jess1=0-9" target="_blank">Social Science</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <div class="dropbtn">Class 9 ▼</div>
+                <div class="dropdown-content">
+                    <a href="https://ncert.nic.in/textbook.php?iesc1=0-16" target="_blank">Science</a>
+                    <a href="https://ncert.nic.in/textbook.php?iemh1=0-15" target="_blank">Mathematics</a>
+                    <a href="https://ncert.nic.in/textbook.php?iess1=0-9" target="_blank">Social Science</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <div class="main-nav">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#books">Textbook</a>
+        <a href="#textbook-solutions">Textbook Solution</a>
+        <a href="#sample-papers">Sample Paper</a>
+        <a href="#old-papers">Previous Year Question Papers</a>
+        <a href="#revision-notes">Revision Notes</a>
+    </div>
+</nav>
+
+<main>
+    <h1 class="page-title" id="home">Ten Solutions</h1>
+
+    <div class="intro-box">
+        <p>Free CBSE study platform for Classes 9–12 — NCERT books, solutions, sample papers, previous year papers, revision notes and AI assistant. All from trusted sources. No ads, no fees.</p>
+    </div>
+
+    <!-- About Ten Solutions Section -->
+    <div class="about-section" id="about">
+        <h2>About Ten Solutions</h2>
+        <p><strong>Ten Solutions</strong> is a completely free, student-first EdTech platform built to support CBSE students of Classes 9 to 12 in their academic journey, especially those preparing for board exams in 2025-26 and beyond.</p>
+
+        <h3>Our Mission</h3>
+        <p>We believe every student deserves access to high-quality, reliable study resources without any cost, ads, or hidden barriers. Our goal is to simplify CBSE learning and help you score better with confidence.</p>
+
+        <h3>What We Offer</h3>
+        <ul>
+            <li><strong>Direct NCERT Books</strong> – Official viewer links to open textbooks instantly</li>
+            <li><strong>Textbook Solutions</strong> – Chapter-wise NCERT solutions from trusted sources</li>
+            <li><strong>Sample Papers (2020–2026)</strong> – Latest CBSE SQPs + full archive</li>
+            <li><strong>Previous Year Papers</strong> – Actual board exam papers with pattern analysis</li>
+            <li><strong>Revision Notes</strong> – New & updated concise notes for quick revision</li>
+            <li><strong>AI Assistant</strong> – 24/7 smart helper that answers almost any NCERT question in detail</li>
+            <li><strong>Support</strong> – Direct email connect to the founder for any help</li>
+        </ul>
+
+        <h3>Why Choose Ten Solutions?</h3>
+        <ul>
+            <li>100% Free – No subscription, no ads, no paywalls</li>
+            <li>Curated from Official CBSE/NCERT & Trusted Educational Sites</li>
+            <li>Designed for Indian Students – Helpful for CBSE schools across the country</li>
+            <li>Mobile-Friendly – Works perfectly on phone, tablet & laptop</li>
+            <li>Regular Updates – Content aligned with latest 2025-26 syllabus & pattern</li>
+            <li>Student-Centric – Built by someone who understands board exam pressure</li>
+        </ul>
+
+        <h3>Founder’s Note</h3>
+        <p>Hi, I'm Raj. I created Ten Solutions Ed Tech Platform because I saw how difficult it was for many students (including my juniors) to find free, reliable, and organized CBSE study material. This platform is my small effort to help you study smarter and stress less. Feel free to reach out anytime!</p>
+
+        <p style="text-align:center; margin-top:2rem;">
+            <a href="#books" style="background:#3498db; color:white; padding:12px 24px; border-radius:8px; text-decoration:none; margin:0 10px;">Start Studying Now</a>
+            <a href="#aiModal" onclick="document.getElementById('aiModal').style.display='flex';" style="background:#27ae60; color:white; padding:12px 24px; border-radius:8px; text-decoration:none; margin:0 10px;">Ask AI Anything</a>
+        </p>
+    </div>
+
+    <div class="class-section" id="books">
+        <h2>Textbook – NCERT Books 2025-26</h2>
+        <p>Click to open official NCERT viewer (chapters + PDF download inside).</p>
+
+        <h3>Class 9</h3>
+        <ul class="book-list">
+            <li>Maths: <a href="https://ncert.nic.in/textbook.php?iemh1=0-15" target="_blank">Mathematics</a></li>
+            <li>Science: <a href="https://ncert.nic.in/textbook.php?iesc1=0-16" target="_blank">Science</a></li>
+            <li>English: <a href="https://ncert.nic.in/textbook.php?lebe1=0-11" target="_blank">Beehive</a> | <a href="https://ncert.nic.in/textbook.php?lemn1=0-10" target="_blank">Moments</a></li>
+        </ul>
+
+        <h3>Class 10</h3>
+        <ul class="book-list">
+            <li>Maths: <a href="https://ncert.nic.in/textbook.php?jemh1=0-15" target="_blank">Mathematics</a></li>
+            <li>Science: <a href="https://ncert.nic.in/textbook.php?jesc1=0-16" target="_blank">Science</a></li>
+            <li>English: <a href="https://ncert.nic.in/textbook.php?jefb1=0-11" target="_blank">First Flight</a> | <a href="https://ncert.nic.in/textbook.php?jeft1=0-10" target="_blank">Footprints without Feet</a></li>
+        </ul>
+
+        <h3>Class 11</h3>
+        <ul class="book-list">
+            <li>Maths: <a href="https://ncert.nic.in/textbook.php?kemh1=0-16" target="_blank">Mathematics</a></li>
+            <li>Physics: <a href="https://ncert.nic.in/textbook.php?keph1=0-8" target="_blank">Part 1</a> | <a href="https://ncert.nic.in/textbook.php?keph2=0-7" target="_blank">Part 2</a></li>
+            <li>Chemistry: <a href="https://ncert.nic.in/textbook.php?kech1=0-8" target="_blank">Part 1</a> | <a href="https://ncert.nic.in/textbook.php?kech2=0-6" target="_blank">Part 2</a></li>
+            <li>Biology: <a href="https://ncert.nic.in/textbook.php?kebo1=0-9" target="_blank">Biology</a></li>
+        </ul>
+
+        <h3>Class 12</h3>
+        <ul class="book-list">
+            <li>Maths: <a href="https://ncert.nic.in/textbook.php?lemh1=0-9" target="_blank">Part 1</a> | <a href="https://ncert.nic.in/textbook.php?lemh2=0-8" target="_blank">Part 2</a></li>
+            <li>Physics: <a href="https://ncert.nic.in/textbook.php?leph1=0-8" target="_blank">Part 1</a> | <a href="https://ncert.nic.in/textbook.php?leph2=0-7" target="_blank">Part 2</a></li>
+            <li>Chemistry: <a href="https://ncert.nic.in/textbook.php?lech1=0-8" target="_blank">Part 1</a> | <a href="https://ncert.nic.in/textbook.php?lech2=0-6" target="_blank">Part 2</a></li>
+            <li>Biology: <a href="https://ncert.nic.in/textbook.php?lebo1=0-13" target="_blank">Biology</a></li>
+        </ul>
+
+        <p>More subjects → <a href="https://ncert.nic.in/textbook.php" target="_blank">Official NCERT Portal</a></p>
+    </div>
+
+    <div class="class-section" id="textbook-solutions">
+        <h2>Textbook Solution – NCERT Solutions</h2>
+        <ul class="subject-list">
+            <li><a href="https://www.learncbse.in/ncert-solutions-class-12/" target="_blank">Class 12</a></li>
+            <li><a href="https://www.learncbse.in/ncert-solutions-class-11/" target="_blank">Class 11</a></li>
+            <li><a href="https://www.learncbse.in/ncert-solutions-for-class-10/" target="_blank">Class 10</a></li>
+            <li><a href="https://www.learncbse.in/ncert-solutions-for-class-9/" target="_blank">Class 9</a></li>
+        </ul>
+    </div>
+
+    <div class="class-section" id="sample-papers">
+        <h2>Sample Paper – CBSE (2020–2026)</h2>
+        <p>Official CBSE Sample Question Papers + Marking Schemes</p>
+        <ul class="book-list">
+            <li><strong>Latest 2025-26 Session</strong>
+                <ul>
+                    <li><a href="https://cbseacademic.nic.in/sqp_classxii_2025-26.html" target="_blank">Class 12 Sample Papers & Marking Scheme</a></li>
+                    <li><a href="https://cbseacademic.nic.in/sqp_classx_2025-26.html" target="_blank">Class 10 Sample Papers & Marking Scheme</a></li>
+                </ul>
+            </li>
+            <li><strong>Full Archive 2020–2026</strong>
+                <ul>
+                    <li><a href="https://cbseacademic.nic.in/sqp_archive.html" target="_blank">Official CBSE Sample Papers Archive (2014–2025)</a></li>
+                </ul>
+            </li>
+        </ul>
+        <p>Tip: Practice 2023–2026 papers first as they match the current syllabus best.</p>
+    </div>
+
+    <div class="class-section" id="old-papers">
+        <h2>Previous Year Question Papers – CBSE (2020–2025)</h2>
+        <p>Actual board exam papers (Main + Compartment)</p>
+        <ul class="book-list">
+            <li><strong>Latest 2025 Exam Papers</strong>
+                <ul>
+                    <li><a href="https://www.cbse.gov.in/cbsenew/question-paper.html" target="_blank">Official CBSE Question Papers (2022–2025)</a></li>
+                </ul>
+            </li>
+            <li><strong>Archive & Compilations 2020–2025</strong>
+                <ul>
+                    <li><a href="https://cbseacademic.nic.in/sqp_archive.html" target="_blank">CBSE Sample Papers Archive (for pattern reference 2020–2025)</a></li>
+                    <li><a href="https://www.learncbse.in/cbse-previous-year-question-papers-class-10/" target="_blank">Class 10 Previous Papers 2020–2025 (LearnCBSE)</a></li>
+                    <li><a href="https://www.learncbse.in/cbse-previous-year-question-papers-class-12/" target="_blank">Class 12 Previous Papers 2020–2025 (LearnCBSE)</a></li>
+                </ul>
+            </li>
+        </ul>
+        <p>Focus on 2023–2025 papers for closest match to 2026 boards.</p>
+    </div>
+
+    <div class="class-section" id="revision-notes">
+        <h2>Revision Notes</h2>
+        <p>Chapter-wise concise notes – aligned to latest CBSE syllabus 2025-26</p>
+        <ul class="book-list">
+            <li><strong>New Revision Notes (Updated)</strong>:
+                <ul>
+                    <li><a href="https://www.learncbse.in/cbse-class-9-notes/" target="_blank">Class 9 New Revision Notes</a></li>
+                    <li><a href="https://www.learncbse.in/cbse-class-10-notes/" target="_blank">Class 10 New Revision Notes</a></li>
+                    <li><a href="https://www.learncbse.in/cbse-class-11-notes/" target="_blank">Class 11 New Revision Notes</a></li>
+                    <li><a href="https://www.learncbse.in/cbse-class-12-notes/" target="_blank">Class 12 New Revision Notes</a></li>
+                </ul>
+            </li>
+            <li><strong>All Classes Revision Notes</strong>:
+                <a href="https://www.learncbse.in/cbse-notes/" target="_blank">LearnCBSE Complete Revision Notes (9–12)</a>
+            </li>
+        </ul>
+        <p>These notes are regularly updated by subject experts for the current academic year.</p>
+    </div>
+</main>
+
+<!-- Support button – fixed at bottom-left -->
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=kumarsinghraj5903@gmail.com&su=Support%20Request%20from%20Ten%20Solutions&body=Hi%20Raj%2C%0A%0AFrom%20Ten%20Solutions%20Ed%20Tech%20Platform%0A%0AMy%20question%20/%20issue%20/%20feedback%3A%20%0A%0A%5BPlease%20write%20your%20query%20here%5D%0A%0AThanks%21%0A%0AMy%20name%3A%20...%0AMy%20class%3A%20...%0Akumarsinghraj5903@gmail.com"
+   target="_blank" rel="noopener noreferrer"
+   class="fab support-btn"
+   title="Email Support via Gmail">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+    </svg>
+</a>
+
+<!-- AI button – bottom-right -->
+<button class="fab ai-btn" id="aiBtn" title="AI Assistant of Ten Solutions">🤖</button>
+
+<!-- AI Modal -->
+<div id="aiModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="aiClose">×</span>
+        <h2>AI Assistant of Ten Solutions</h2>
+        <div id="chatHistory">
+            <div class="message ai-msg">Hello! 👋 I'm your AI Assistant of Ten Solutions.<br>Ask me anything from CBSE/NCERT Classes 9 to 12 — chapter explanations, formulas, derivations, solved examples, definitions, key points, diagrams description, exam tips... I'm here to help! 📚</div>
+        </div>
+        <form id="aiForm">
+            <input type="text" id="aiInput" placeholder="Ask any question..." required autocomplete="off">
+            <button type="submit" id="aiSend">Send</button>
+        </form>
+    </div>
+</div>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close">×</span>
+        <h2>Login</h2>
+        <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" required>
+        </div>
+        <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required>
+        </div>
+        <button class="form-btn" id="loginSubmit">Login</button>
+        <p class="switch-link" id="toRegister">Don't have an account? Register here</p>
+    </div>
+</div>
+
+<!-- Register Modal -->
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close">×</span>
+        <h2>Register</h2>
+        <div class="form-group">
+            <label for="regName">Name</label>
+            <input type="text" id="regName" required>
+        </div>
+        <div class="form-group">
+            <label for="regEmail">Email</label>
+            <input type="email" id="regEmail" required>
+        </div>
+        <div class="form-group">
+            <label for="regPassword">Password</label>
+            <input type="password" id="regPassword" minlength="6" required>
+        </div>
+        <button class="form-btn" id="registerSubmit">Register</button>
+        <p class="switch-link" id="toLogin">Already have an account? Login here</p>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Ten Solutions Ed Tech Platform – Free CBSE Resources for Classes 9–12</p>
+</footer>
+
+<script>
+// Modal handling
+document.querySelectorAll('.close').forEach(el => {
+    el.onclick = () => el.closest('.modal').style.display = 'none';
+});
+window.onclick = e => {
+    if (e.target.classList.contains('modal')) e.target.style.display = 'none';
+};
+
+// Switch login ↔ register
+document.getElementById('toRegister').onclick = () => {
+    document.getElementById('loginModal').style.display = 'none';
+    document.getElementById('registerModal').style.display = 'flex';
+};
+document.getElementById('toLogin').onclick = () => {
+    document.getElementById('registerModal').style.display = 'none';
+    document.getElementById('loginModal').style.display = 'flex';
+};
+
+// LocalStorage auth
+function updateUI(user) {
+    document.getElementById('userActions').innerHTML = `
+        <span class="welcome-msg">Welcome, ${user.name}</span>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+    `;
+    document.getElementById('logoutBtn').onclick = () => {
+        localStorage.removeItem('currentUser');
+        location.reload();
+    };
+}
+
+const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+if (currentUser) updateUI(currentUser);
+
+document.getElementById('loginSubmit').onclick = () => {
+    const email = document.getElementById('loginEmail').value.trim();
+    const pass = document.getElementById('loginPassword').value;
+    const stored = JSON.parse(localStorage.getItem(email));
+    if (stored && stored.password === pass) {
+        localStorage.setItem('currentUser', JSON.stringify({name: stored.name, email}));
+        updateUI({name: stored.name});
+        document.getElementById('loginModal').style.display = 'none';
+    } else {
+        alert('Invalid email or password');
+    }
+};
+
+document.getElementById('registerSubmit').onclick = () => {
+    const name = document.getElementById('regName').value.trim();
+    const email = document.getElementById('regEmail').value.trim();
+    const pass = document.getElementById('regPassword').value;
+    if (localStorage.getItem(email)) {
+        alert('Email already registered');
+        return;
+    }
+    localStorage.setItem(email, JSON.stringify({name, password: pass}));
+    localStorage.setItem('currentUser', JSON.stringify({name, email}));
+    updateUI({name});
+    document.getElementById('registerModal').style.display = 'none';
+};
+
+// === AI Chat Bot – Smart & direct ===
+const chatHistory = document.getElementById('chatHistory');
+const aiForm = document.getElementById('aiForm');
+const aiInput = document.getElementById('aiInput');
+
+function addMessage(text, type) {
+    const msg = document.createElement('div');
+    msg.className = `message ${type}-msg`;
+    msg.innerHTML = text;
+    chatHistory.appendChild(msg);
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+}
+
+function getAIResponse(question) {
+    const q = question.toLowerCase().trim();
+
+    if (q.includes('hi') || q.includes('hello') || q.includes('hey') || q === '') {
+        return "Hello! 👋 I'm your AI Assistant of Ten Solutions.<br>Ask me anything from CBSE/NCERT Classes 9 to 12 — chapter explanations, formulas, derivations, solved examples, definitions, key points, diagrams description, exam tips... I'm here to help! 📚";
+    }
+
+    if (q.includes('help') || q.includes('what can you') || q.includes('who are you') || q.includes('can you')) {
+        return "I can help with almost any NCERT/CBSE topic from Classes 9–12:<br>• Full chapter summaries & explanations<br>• Step-by-step solutions to exercises & examples<br>• Derivations, formulas, reactions<br>• Important definitions & key points<br>• Diagram descriptions<br>• Exam-oriented notes & tips<br>• Comparison tables, differences, flowcharts<br><br>Just ask your question!";
+    }
+
+    if (q.includes('ray optics') || q.includes('optics') || q.includes('lens') || q.includes('mirror') || q.includes('human eye') || q.includes('prism') || q.includes('dispersion')) {
+        return `<b>Ray Optics & Optical Instruments</b><br><br>
+        <b>Key formulas:</b><br>
+        • Mirror formula: 1/f = 1/v + 1/u<br>
+        • Lens formula: 1/f = 1/v – 1/u<br>
+        • Magnification (mirror): m = –v/u<br>
+        • Lens magnification: m = v/u<br>
+        • Lens power: P = 1/f (f in meters)<br>
+        • Snell’s law: n₁ sin i = n₂ sin r<br>
+        • Critical angle: sin C = 1/μ<br><br>
+        Covers reflection/refraction on spherical surfaces, lens maker’s formula, prism deviation & dispersion, defects of vision (myopia, hypermetropia, presbyopia), optical instruments (microscope, telescope).<br><br>Need any part explained in detail?`;
+    }
+
+    if (q.includes('electromagnetic induction') || q.includes('emi') || q.includes('faraday') || q.includes('lenz') || q.includes('inductance')) {
+        return `<b>Electromagnetic Induction</b><br><br>
+        • Faraday’s law: Induced emf = – rate of change of magnetic flux (ε = – dΦ/dt)<br>
+        • Lenz’s law: Induced current opposes change in flux<br>
+        • Motional emf in rod: ε = Bℓv<br>
+        • Self-inductance: ε = –L (di/dt)<br>
+        • Energy stored in inductor: ½ LI²<br><br>
+        Key concepts: Faraday & Henry experiments, eddy currents, damping, mutual inductance.<br><br>Want derivation of any formula or numerical help?`;
+    }
+
+    if (q.includes('chemical reactions') || q.includes('balancing') || q.includes('combination') || q.includes('decomposition') || q.includes('displacement') || q.includes('redox')) {
+        return `<b>Chemical Reactions & Equations</b><br><br>
+        Five major types:<br>
+        1. Combination<br>
+        2. Decomposition (thermal / electrolytic / photochemical)<br>
+        3. Displacement<br>
+        4. Double displacement<br>
+        5. Oxidation-Reduction (Redox)<br><br>
+        Also important: corrosion, rancidity, balancing chemical equations step-by-step.<br><br>Want help balancing any equation or understanding any type?`;
+    }
+
+    if (q.includes('carbon') || q.includes('covalent') || q.includes('allotropes') || q.includes('soap') || q.includes('micelle')) {
+        return `<b>Carbon and its Compounds</b><br><br>
+        • Carbon shows catenation and tetravalency<br>
+        • Allotropes: Diamond (hard, insulator), Graphite (soft, conductor), Fullerenes, Graphene<br>
+        • Covalent bonds: single, double, triple<br>
+        • Saturated hydrocarbons: Alkanes (CnH2n+2)<br>
+        • Unsaturated: Alkenes (CnH2n), Alkynes (CnH2n-2)<br>
+        • Functional groups: alcohol (–OH), aldehyde (–CHO), ketone (>C=O), carboxylic acid (–COOH)<br>
+        • Soaps & detergents form micelles in water<br><br>
+        Ask about any compound, reaction or concept!`;
+    }
+
+    if (q.includes('photosynthesis') || q.includes('respiration') || q.includes('life processes') || q.includes('nutrition') || q.includes('transportation')) {
+        return `<b>Photosynthesis / Life Processes</b><br><br>
+        Equation: 6CO₂ + 12H₂O → C₆H₁₂O₆ + 6O₂ + 6H₂O<br><br>
+        Two stages:<br>
+        1. Light reaction: occurs in thylakoid, produces ATP, NADPH, oxygen (photolysis of water)<br>
+        2. Dark reaction / Calvin cycle: fixes CO₂ into glucose using RuBisCO<br><br>
+        Important: C3 vs C4 pathway, photorespiration, factors affecting rate.<br><br>Want detailed explanation of any part or diagram description?`;
+    }
+
+    if (q.includes('quadratic') || q.includes('x²') || q.match(/solve.*=/i) || q.includes('roots') || q.includes('discriminant')) {
+        return `<b>Quadratic Equations</b><br><br>
+        Standard form: ax² + bx + c = 0<br><br>
+        • Discriminant: D = b² – 4ac<br>
+        • Roots: x = [–b ± √D] / (2a)<br>
+        • Nature of roots:<br>
+           D > 0 → two distinct real roots<br>
+           D = 0 → repeated root<br>
+           D < 0 → no real roots<br><br>
+        Send your equation — I'll solve it step-by-step with explanation!`;
+    }
+
+    return `Got it! 🤔<br>
+    I'm ready to answer your question from NCERT/CBSE syllabus (Classes 9–12).<br><br>
+    Just tell me what you want to know — chapter explanation, formula derivation, solved example, definition, key points, diagram description, exam tip... anything!<br><br>Go ahead! 📖`;
+}
+
+aiForm.onsubmit = e => {
+    e.preventDefault();
+    const question = aiInput.value.trim();
+    if (!question) return;
+
+    addMessage(question, 'user');
+
+    const answer = getAIResponse(question);
+
+    setTimeout(() => {
+        addMessage(answer, 'ai');
+    }, 600 + Math.random() * 900);
+
+    aiInput.value = '';
+};
+
+document.getElementById('aiBtn').onclick = () => {
+    document.getElementById('aiModal').style.display = 'flex';
+    aiInput.focus();
+};
+
+document.getElementById('aiClose').onclick = () => {
+    document.getElementById('aiModal').style.display = 'none';
+};
+
+let firstOpen = true;
+document.getElementById('aiBtn').addEventListener('click', () => {
+    if (firstOpen) {
+        setTimeout(() => {
+            addMessage("I'm ready to answer any question from your NCERT books — board exam mode activated! 🔥", 'ai');
+        }, 1400);
+        firstOpen = false;
+    }
+});
+
+// Login / Register modals
+document.getElementById('loginBtn').onclick = () => document.getElementById('loginModal').style.display = 'flex';
+document.getElementById('registerBtn').onclick = () => document.getElementById('registerModal').style.display = 'flex';
+</script>
+</body>
+</html>
