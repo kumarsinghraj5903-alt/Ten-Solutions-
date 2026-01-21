@@ -2,9 +2,9 @@
   "name": "ten-solutions-ai",
   "version": "1.0.0",
   "type": "module",
-  "dependencies": {
+  "dependencies": 
     "openai": "^4.30.0"
-  "scripts": {
+  "scripts": 
   "start": "react-scripts start",
   "build": "react-scripts build"
 
