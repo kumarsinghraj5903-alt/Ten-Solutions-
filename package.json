@@ -1,10 +1,12 @@
 {
   "name": "ten-solutions-ai",
   "version": "1.0.0",
+  "description": "AI Assistant backend for Ten Solutions (CBSE Classes 9–12)",
   "type": "module",
+  "private": true,
   "scripts": {
     "dev": "vercel dev",
-    "build": "echo \"No build needed\""
+    "start": "vercel dev"
   },
   "dependencies": {
     "openai": "^4.30.0"
