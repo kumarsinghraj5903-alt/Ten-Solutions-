@@ -1,18 +1,15 @@
 export default async function handler(req, res) {
-  // Allow only POST requests
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Only POST method allowed" });
   }
 
   try {
-    // Get the user's question from the request body
     const { message } = req.body;
 
     if (!message) {
       return res.status(400).json({ error: "No question provided." });
     }
 
-    // System prompt for AI assistant
     const systemPrompt = `
 You are the AI Assistant of Ten Solutions.
 Answer questions clearly and step-by-step.
@@ -22,7 +19,6 @@ Provide structured, helpful, and informative answers.
 Do not ask for class, subject, or chapter.
 `;
 
-    // Call the Groq AI API
     const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -42,7 +38,6 @@ Do not ask for class, subject, or chapter.
 
     const data = await response.json();
 
-    // Return the AI's reply
     res.status(200).json({
       reply: data.choices?.[0]?.message?.content || "AI could not generate a reply."
     });
@@ -52,3 +47,4 @@ Do not ask for class, subject, or chapter.
     res.status(500).json({ error: "AI error" });
   }
 }
+
