@@ -1,50 +1,46 @@
+// /api/chat.js
+import fetch from "node-fetch"; // optional, depending on Node version
+
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Only POST method allowed" });
-  }
-
   try {
-    const { message } = req.body;
-
-    if (!message) {
-      return res.status(400).json({ error: "No question provided." });
+    if (req.method !== "POST") {
+      return res.status(405).json({ error: "Method not allowed" });
     }
 
-    const systemPrompt = `
-You are the AI Assistant of Ten Solutions.
-Answer questions clearly and step-by-step.
-Explain concepts, formulas, derivations, numericals, and examples.
-Use simple, easy-to-understand language for students.
-Provide structured, helpful, and informative answers.
-Do not ask for class, subject, or chapter.
-`;
+    const { message } = req.body;
+    if (!message) {
+      return res.status(400).json({ error: "Message is required" });
+    }
 
-    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+    // Call OpenAI API
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${process.env.GROQ_API_KEY}`
+        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
       },
       body: JSON.stringify({
-        model: "llama-3.1-8b-instant",
-        temperature: 0.3,
-        max_tokens: 900,
+        model: "gpt-4o-mini", // you can use gpt-4o, gpt-4, or gpt-3.5-turbo
         messages: [
-          { role: "system", content: systemPrompt },
+          {
+            role: "system",
+            content: "You are a CBSE Class 9-12 Physics, Chemistry & Maths AI tutor. Answer in a student-friendly, step-by-step way."
+          },
           { role: "user", content: message }
-        ]
+        ],
+        temperature: 0.7
       })
     });
 
     const data = await response.json();
 
-    res.status(200).json({
-      reply: data.choices?.[0]?.message?.content || "AI could not generate a reply."
-    });
+    if (!data.choices || !data.choices[0].message) {
+      return res.status(500).json({ error: "AI did not return a valid response" });
+    }
 
+    res.status(200).json({ reply: data.choices[0].message.content });
   } catch (err) {
-    console.error("AI API Error:", err);
-    res.status(500).json({ error: "AI error" });
+    console.error("Chat API Error:", err);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 }
-
