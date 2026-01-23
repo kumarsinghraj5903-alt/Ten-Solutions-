@@ -7,6 +7,13 @@ aiForm.onsubmit = async e => {
   addMessage(question, 'user');
   aiInput.value = '';
 
+  // show thinking
+  const thinkingMsg = document.createElement('div');
+  thinkingMsg.className = 'message ai-msg';
+  thinkingMsg.innerHTML = 'AI Assistant of Ten Solutions is thinking...';
+  chatHistory.appendChild(thinkingMsg);
+  chatHistory.scrollTop = chatHistory.scrollHeight;
+
   try {
     const res = await fetch("/api/chat", {
       method: "POST",
@@ -17,9 +24,12 @@ aiForm.onsubmit = async e => {
     });
 
     const data = await res.json();
-    addMessage(data.reply || "AI could not generate answer.", 'ai');
+    thinkingMsg.remove();
+    addMessage(data.reply || "No response from AI.", 'ai');
 
   } catch (err) {
-    addMessage("⚠️ AI connection failed. Please try again.", 'ai');
+    thinkingMsg.remove();
+    addMessage("AI failed to respond. Please refresh and try again.", 'ai');
+    console.error(err);
   }
 };
