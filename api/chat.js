@@ -1,3 +1,13 @@
+async function fetchRealAI(question) {
+  const res = await fetch("/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: question })
+  });
+
+  const data = await res.json();
+  return data.reply;
+}
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "POST only" });
