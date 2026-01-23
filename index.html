@@ -4,29 +4,35 @@
   <meta charset="UTF-8" />
   <title>Ten Solutions – AI Chatbot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
     }
 
     #chatBox {
       width: 100%;
       max-width: 420px;
       height: 500px;
-      margin: 40px auto;
       background: #fff;
       border-radius: 10px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       display: flex;
       flex-direction: column;
+      overflow: hidden;
     }
 
     #chatHistory {
       flex: 1;
       padding: 15px;
       overflow-y: auto;
+      scroll-behavior: smooth;
+      background: #f9f9f9;
     }
 
     .message {
@@ -34,6 +40,7 @@
       padding: 10px;
       border-radius: 8px;
       max-width: 85%;
+      word-wrap: break-word;
     }
 
     .user-msg {
@@ -56,6 +63,7 @@
       padding: 12px;
       border: none;
       outline: none;
+      font-size: 16px;
     }
 
     button {
@@ -64,6 +72,7 @@
       background: #007bff;
       color: #fff;
       cursor: pointer;
+      font-size: 16px;
     }
 
     button:hover {
@@ -73,80 +82,75 @@
 </head>
 
 <body>
+  <div id="chatBox">
+    <div id="chatHistory"></div>
 
-<div id="chatBox">
-  <div id="chatHistory"></div>
+    <form id="aiForm">
+      <input
+        id="aiInput"
+        type="text"
+        placeholder="Ask a NCERT question (Class 9–12)…"
+        autocomplete="off"
+        required
+      />
+      <button type="submit">Send</button>
+    </form>
+  </div>
 
-  <form id="aiForm">
-    <input
-      id="aiInput"
-      type="text"
-      placeholder="Ask a NCERT question (Class 9–12)…"
-      autocomplete="off"
-      required
-    />
-    <button type="submit">Send</button>
-  </form>
-</div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const chatHistory = document.getElementById("chatHistory");
+      const aiForm = document.getElementById("aiForm");
+      const aiInput = document.getElementById("aiInput");
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-  const chatHistory = document.getElementById("chatHistory");
-  const aiForm = document.getElementById("aiForm");
-  const aiInput = document.getElementById("aiInput");
-
-  if (!chatHistory || !aiForm || !aiInput) {
-    console.error("AI Chat elements missing");
-    return;
-  }
-
-  function addMessage(text, type) {
-    const div = document.createElement("div");
-    div.className = `message ${type}-msg`;
-    div.innerHTML = text.replace(/\n/g, "<br>");
-    chatHistory.appendChild(div);
-    chatHistory.scrollTop = chatHistory.scrollHeight;
-  }
-
-  aiForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const question = aiInput.value.trim();
-    if (!question) return;
-
-    addMessage(question, "user");
-    aiInput.value = "";
-
-    const typing = document.createElement("div");
-    typing.className = "message ai-msg";
-    typing.innerText = "AI is thinking...";
-    chatHistory.appendChild(typing);
-
-    try {
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: question })
-      });
-
-      const data = await res.json();
-      typing.remove();
-
-      if (data.reply) {
-        addMessage(data.reply, "ai");
-      } else {
-        addMessage("⚠ AI response error.", "ai");
+      function addMessage(text, type) {
+        const div = document.createElement("div");
+        div.className = `message ${type}-msg`;
+        div.innerHTML = text.replace(/\n/g, "<br>");
+        chatHistory.appendChild(div);
+        chatHistory.scrollTop = chatHistory.scrollHeight;
       }
 
-    } catch (err) {
-      typing.remove();
-      addMessage("⚠ AI server unavailable. Try again later.", "ai");
-    }
-  });
+      aiForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const question = aiInput.value.trim();
+        if (!question) return;
 
-});
-</script>
+        addMessage(question, "user");
+        aiInput.value = "";
+        aiInput.disabled = true;
 
+        const typing = document.createElement("div");
+        typing.className = "message ai-msg";
+        typing.innerText = "AI is thinking...";
+        chatHistory.appendChild(typing);
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+
+        try {
+          const res = await fetch("/api/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: question })
+          });
+
+          const data = await res.json();
+          typing.remove();
+
+          if (data && data.reply) {
+            addMessage(data.reply, "ai");
+          } else {
+            addMessage("⚠ AI response error.", "ai");
+          }
+
+        } catch (err) {
+          typing.remove();
+          addMessage("⚠ AI server unavailable. Try again later.", "ai");
+        } finally {
+          aiInput.disabled = false;
+          aiInput.focus();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
