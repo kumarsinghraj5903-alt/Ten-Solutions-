@@ -1,35 +1,44 @@
-aiForm.onsubmit = async (e) => {
-  e.preventDefault();
-
-  const question = aiInput.value.trim();
-  if (!question) return;
-
-  addMessage(question, "user");
-  aiInput.value = "";
-
-  const thinking = document.createElement("div");
-  thinking.className = "message ai-msg";
-  thinking.textContent = "AI Assistant of Ten Solutions is thinking...";
-  chatHistory.appendChild(thinking);
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Only POST method allowed" });
+  }
 
   try {
-    const res = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: question })
-    });
-
-    if (!res.ok) {
-      throw new Error("API error " + res.status);
+    const { message } = req.body;
+    if (!message) {
+      return res.status(400).json({ reply: "No question received." });
     }
 
-    const data = await res.json();
-    thinking.remove();
-    addMessage(data.reply || "No response from AI.", "ai");
+    const response = await fetch(
+      "https://api.groq.com/openai/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
+        },
+        body: JSON.stringify({
+          model: "llama3-8b-8192",
+          messages: [
+            {
+              role: "system",
+              content:
+                "You are AI Assistant of Ten Solutions. Answer clearly for CBSE Classes 9–12 using NCERT syllabus.",
+            },
+            { role: "user", content: message },
+          ],
+        }),
+      }
+    );
 
+    const data = await response.json();
+
+    return res.status(200).json({
+      reply: data.choices?.[0]?.message?.content || "AI did not reply.",
+    });
   } catch (err) {
-    thinking.remove();
-    addMessage("⚠️ AI failed. Check console.", "ai");
-    console.error(err);
+    return res.status(500).json({
+      reply: "Server error. AI not responding.",
+    });
   }
-};
+}
