@@ -1,28 +1,21 @@
 {
-  "name": "ten-solutions-ai-tutor",
+  "name": "ten-solutions",
   "version": "1.0.0",
-  "description": "Ten Solutions – Class 9 to 12 AI Tutor (Physics, Chemistry, Maths) with interactive chatbot",
-  "main": "index.html",
-  "scripts": {
-    "start": "live-server --open=./index.html --port=5500",
-    "build": "echo \"No build needed for plain HTML/CSS/JS\"",
-    "test": "echo \"No tests specified\" && exit 0"
-  },
-  "keywords": [
-    "CBSE",
-    "AI Tutor",
-    "Class 9",
-    "Class 10",
-    "Class 11",
-    "Class 12",
-    "Physics",
-    "Chemistry",
-    "Mathematics"
-  ],
-  "author": "Raj Singh",
+  "private": true,
+  "description": "Free CBSE study platform for Classes 9–12",
+  "author": "Raj (Mahismati)",
   "license": "MIT",
-  "dependencies": {},
+  "scripts": {
+    "start": "npx serve . -p 3000",
+    "format": "prettier --write \"**/*.{html,css,js,json}\"",
+    "lint": "npx eslint . --ext .js"
+  },
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "eslint": "^9.9.1",
+    "prettier": "^3.3.3",
+    "serve": "^14.2.3"
+  },
+  "volta": {
+    "node": "20.17.0"
   }
 }
