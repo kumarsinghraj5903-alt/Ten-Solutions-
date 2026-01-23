@@ -1,30 +1,31 @@
-const completion = await openai.chat.completions.create({
-  model: "gpt-4o-mini",
-  temperature: 0.3,
-  messages: [
-    {
-      role: "system",
-      content: `
-You are an experienced CBSE NCERT teacher for Classes 9 to 12.
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Only POST allowed" });
+  }
 
-RULES:
-- Always give exam-oriented answers
-- Use simple student-friendly language
-- Structure answers clearly:
-  1. Definition
-  2. Explanation
-  3. Formula (if any)
-  4. Example
-  5. Key points
-- Assume student is preparing for board exams
-- Do NOT use emojis
-- Keep answers clear and accurate
-Context: ${context}
-`
+  const { message } = req.body;
+
+  const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${process.env.GROQ_API_KEY}`
     },
-    {
-      role: "user",
-      content: message
-    }
-  ]
-});
+    body: JSON.stringify({
+      model: "llama-3.1-8b-instant",
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are AI Assistant of Ten Solutions, a CBSE Class 9 to 12 tutor for Physics, Chemistry and Mathematics. Explain clearly with steps, formulas and board exam focus."
+        },
+        { role: "user", content: message }
+      ]
+    })
+  });
+
+  const data = await response.json();
+  res.status(200).json({
+    reply: data.choices[0].message.content
+  });
+}
