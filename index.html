@@ -1,132 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Ten Solutions – AI Assistant</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      margin: 0;
-      padding: 0;
-    }
-    .chat-container {
-      max-width: 600px;
-      margin: 30px auto;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      height: 80vh;
-    }
-    .chat-header {
-      padding: 15px;
-      background: #2563eb;
-      color: #fff;
-      text-align: center;
-      font-weight: bold;
-    }
-    .chat-history {
-      flex: 1;
-      padding: 15px;
-      overflow-y: auto;
-    }
-    .message {
-      margin-bottom: 10px;
-      padding: 10px;
-      border-radius: 6px;
-      max-width: 90%;
-    }
-    .user-msg {
-      background: #dbeafe;
-      align-self: flex-end;
-    }
-    .ai-msg {
-      background: #f1f5f9;
-      align-self: flex-start;
-    }
-    form {
-      display: flex;
-      border-top: 1px solid #ddd;
-    }
-    input {
-      flex: 1;
-      padding: 12px;
-      border: none;
-      outline: none;
-      font-size: 16px;
-    }
-    button {
-      padding: 12px 20px;
-      border: none;
-      background: #2563eb;
-      color: white;
-      cursor: pointer;
-      font-size: 16px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ten Solutions – AI Assistant</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin:0; background: #f0f4ff; color:#1e293b; }
+  header { background:#1e40af; color:white; padding:1rem; text-align:center; }
+  main { max-width:900px; margin:2rem auto; padding:1rem; }
+  .intro { background:white; padding:2rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); }
+  .fab { position: fixed; bottom:40px; right:40px; width:70px; height:70px; border-radius:50%; background:#3b82f6; color:white; font-size:32px; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:999; }
+  .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; }
+  .modal-content { background:white; border-radius:16px; width:94%; max-width:680px; max-height:90vh; display:flex; flex-direction:column; overflow:hidden; }
+  .modal-header { background:#1e40af; color:white; padding:1rem 1.5rem; display:flex; justify-content:space-between; align-items:center; }
+  .close-btn { cursor:pointer; font-size:28px; }
+  #chatHistory { flex:1; overflow-y:auto; padding:1rem; background:#f8fafc; display:flex; flex-direction:column; }
+  .message { padding:12px 18px; border-radius:20px; margin:8px 0; max-width:88%; line-height:1.4; }
+  .user-msg { background:#1e40af; color:white; align-self:flex-end; }
+  .ai-msg { background:#e2e8f0; color:#1f2937; align-self:flex-start; }
+  #aiForm { display:flex; border-top:1px solid #cbd5e1; padding:1rem; background:white; }
+  #aiInput { flex:1; padding:10px 14px; border-radius:10px; border:1px solid #cbd5e1; font-size:1rem; outline:none; }
+  #aiSend { padding:0 20px; margin-left:10px; border:none; border-radius:10px; background:#1e40af; color:white; cursor:pointer; font-weight:600; }
+</style>
 </head>
 <body>
 
-<div class="chat-container">
-  <div class="chat-header">AI Assistant of Ten Solutions</div>
-  <div id="chatHistory" class="chat-history"></div>
+<header><h1>Ten Solutions – AI Assistant</h1></header>
+<main>
+<div class="intro">
+<p>Ask any question and get step-by-step answers instantly from our AI Assistant!</p>
+</div>
+</main>
 
-  <form id="aiForm">
-    <input id="aiInput" type="text" placeholder="Ask CBSE Class 9–12 question..." required />
-    <button type="submit">Send</button>
-  </form>
+<!-- Floating AI Button -->
+<div class="fab" id="aiBtn">🤖</div>
+
+<!-- Modal -->
+<div id="aiModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>AI Assistant</h2>
+      <span class="close-btn" id="aiClose">×</span>
+    </div>
+    <div id="chatHistory">
+      <div class="message ai-msg">Hello! I am your AI Assistant of Ten Solutions. Ask any question and I will answer step-by-step!</div>
+    </div>
+    <form id="aiForm">
+      <input type="text" id="aiInput" placeholder="Type your question here..." autocomplete="off"/>
+      <button type="submit" id="aiSend">Send</button>
+    </form>
+  </div>
 </div>
 
 <script>
+  // Modal toggle
+  const aiBtn = document.getElementById("aiBtn");
+  const aiModal = document.getElementById("aiModal");
+  const aiClose = document.getElementById("aiClose");
+  aiBtn.onclick = () => { aiModal.style.display="flex"; aiInput.focus(); }
+  aiClose.onclick = () => { aiModal.style.display="none"; }
+  window.onclick = e => { if(e.target===aiModal) aiModal.style.display="none"; }
+
+  // Chat logic
+  const chatHistory = document.getElementById("chatHistory");
   const aiForm = document.getElementById("aiForm");
   const aiInput = document.getElementById("aiInput");
-  const chatHistory = document.getElementById("chatHistory");
 
-  function addMessage(text, type) {
-    const div = document.createElement("div");
-    div.className = "message " + (type === "user" ? "user-msg" : "ai-msg");
-    div.textContent = text;
-    chatHistory.appendChild(div);
-    chatHistory.scrollTop = chatHistory.scrollHeight;
-  }
-
-  aiForm.addEventListener("submit", async (e) => {
+  aiForm.onsubmit = async e => {
     e.preventDefault();
-
     const question = aiInput.value.trim();
-    if (!question) return;
+    if(!question) return;
+    // user message
+    const userMsg = document.createElement("div");
+    userMsg.className="message user-msg";
+    userMsg.textContent=question;
+    chatHistory.appendChild(userMsg);
+    aiInput.value="";
 
-    addMessage(question, "user");
-    aiInput.value = "";
-
+    // AI thinking
     const thinking = document.createElement("div");
-    thinking.className = "message ai-msg";
-    thinking.textContent = "AI Assistant is thinking...";
+    thinking.className="message ai-msg";
+    thinking.textContent="AI Assistant of Ten Solutions is thinking...";
     chatHistory.appendChild(thinking);
+    chatHistory.scrollTop=chatHistory.scrollHeight;
 
     try {
       const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: question })
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({ message: question })
       });
-
       const data = await res.json();
       thinking.remove();
-
-      addMessage(
-        data.reply || "AI did not respond. Please try again.",
-        "ai"
-      );
-    } catch (err) {
+      const aiMsg = document.createElement("div");
+      aiMsg.className="message ai-msg";
+      aiMsg.innerHTML=data.reply || "No response from AI.";
+      chatHistory.appendChild(aiMsg);
+      chatHistory.scrollTop=chatHistory.scrollHeight;
+    } catch(err){
       thinking.remove();
-      addMessage("❌ Error connecting to AI server.", "ai");
+      const errMsg = document.createElement("div");
+      errMsg.className="message ai-msg";
+      errMsg.textContent="⚠️ AI failed. Please try again.";
+      chatHistory.appendChild(errMsg);
       console.error(err);
     }
-  });
+  }
 </script>
 
 </body>
