@@ -1,21 +1,16 @@
 {
-  "name": "ten-solutions-ai-tutor",
+  "name": "ten-solutions-chatbot",
   "version": "1.0.0",
-  "description": "CBSE Class 9-12 AI Tutor - Physics, Chemistry, Maths",
-  "main": "index.js",
+  "description": "Local AI Chatbot for Ten Solutions",
+  "main": "chat.js",
   "scripts": {
-    "dev": "vercel dev",
-    "start": "node index.js",
-    "build": "vercel build"
-  },
-  "dependencies": {
-    "node-fetch": "^3.4.0"  ,
-    "dotenv": "^16.3.1"
-  },
-  "type": "module",
-  "engines": {
-    "node": ">=18"
+    "start": "node chat.js"
   },
   "author": "Raj Singh",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5"
+  }
 }
