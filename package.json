@@ -1,28 +1,25 @@
 {
   "name": "ten-solutions-ai-tutor",
   "version": "1.0.0",
-  "description": "Ten Solutions – AI Tutor for Class 9 to 12 Physics, Chemistry & Maths",
-  "main": "index.html",
+  "description": "AI Tutor for Class 9 to 12 Physics, Chemistry, and Mathematics",
+  "main": "index.js",
   "scripts": {
-    "start": "live-server",
-    "build": "echo \"No build step required for pure HTML/CSS/JS\""
+    "start": "live-server ./",
+    "build": "echo \"No build step yet\"",
+    "test": "echo \"No tests yet\""
   },
   "keywords": [
     "CBSE",
-    "Class 9",
-    "Class 10",
-    "Class 11",
-    "Class 12",
+    "AI Tutor",
+    "Class 9-12",
     "Physics",
     "Chemistry",
-    "Maths",
-    "AI Tutor",
-    "Education",
-    "NCERT"
+    "Mathematics"
   ],
   "author": "Raj Singh",
   "license": "MIT",
   "devDependencies": {
     "live-server": "^1.2.2"
-  }
+  },
+  "dependencies": {}
 }
