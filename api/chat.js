@@ -1,46 +1,29 @@
-// /api/chat.js
-import fetch from "node-fetch"; // optional, depending on Node version
+// chat.js
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
-export default async function handler(req, res) {
-  try {
-    if (req.method !== "POST") {
-      return res.status(405).json({ error: "Method not allowed" });
-    }
+const app = express();
+const PORT = 3000;
 
-    const { message } = req.body;
-    if (!message) {
-      return res.status(400).json({ error: "Message is required" });
-    }
+app.use(cors());
+app.use(bodyParser.json());
+app.use(express.static("public")); // serve your HTML file from "public" folder
 
-    // Call OpenAI API
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: "gpt-4o-mini", // you can use gpt-4o, gpt-4, or gpt-3.5-turbo
-        messages: [
-          {
-            role: "system",
-            content: "You are a CBSE Class 9-12 Physics, Chemistry & Maths AI tutor. Answer in a student-friendly, step-by-step way."
-          },
-          { role: "user", content: message }
-        ],
-        temperature: 0.7
-      })
-    });
+// Simple AI mock endpoint
+app.post("/api/chat", (req, res) => {
+  const { message } = req.body;
 
-    const data = await response.json();
-
-    if (!data.choices || !data.choices[0].message) {
-      return res.status(500).json({ error: "AI did not return a valid response" });
-    }
-
-    res.status(200).json({ reply: data.choices[0].message.content });
-  } catch (err) {
-    console.error("Chat API Error:", err);
-    res.status(500).json({ error: "Internal Server Error" });
+  if (!message || message.trim() === "") {
+    return res.json({ reply: "⚠ Please ask a valid question." });
   }
-}
+
+  // Mock AI response (you can replace this with real OpenAI API later)
+  const aiReply = `AI says: You asked "${message}" - This is a mock response.`;
+
+  res.json({ reply: aiReply });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
