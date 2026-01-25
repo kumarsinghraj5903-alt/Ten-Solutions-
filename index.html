@@ -775,7 +775,232 @@ function getAIResponse(question) {
         • 3rd: Action-reaction<br>
         • Momentum: p = mv, Impulse = Δp<br><br>
         Free body diagrams & numericals very important.`;
+    }// ────────────── Class 12 Physics ──────────────
+// Electromagnetic Waves + Dual Nature + Atoms & Nuclei (combined ~8–10 marks)
+if (q.includes('electromagnetic') || q.includes('em waves') || q.includes('spectrum') || q.includes('displacement current') || 
+    q.includes('dual nature') || q.includes('photoelectric') || q.includes('matter wave') || 
+    q.includes('atom') || q.includes('bohr') || q.includes('nucleus') || q.includes('radioactivity')) {
+    return `<b>Electromagnetic Waves + Dual Nature + Atoms & Nuclei – Class 12 Physics (~8–10 marks combined)</b><br><br>
+    • EM Waves: Displacement current, EM spectrum (radio → gamma), properties (transverse, no medium needed).<br>
+    • Photoelectric effect: E = hν – φ, stopping potential, Einstein equation.<br>
+    • de Broglie: λ = h/p<br>
+    • Bohr model: rₙ = n²h²/4π²mkZe², energy levels.<br>
+    • Radioactivity: α, β, γ decay, half-life, decay constant λ = ln2/T½<br><br>
+    Exam tip: Numerical on photoelectric threshold, Bohr radius/energy, decay calculations + short notes on spectrum. Very scoring if formulas memorized.<br>Want a specific numerical or diagram explanation?`;
+}
+
+// Magnetism & Matter + Alternating Current (high weightage ~9–11 marks)
+if (q.includes('magnetism') || q.includes('magnetic') || q.includes('hysteresis') || q.includes('ferromagnet') || 
+    q.includes('ac') || q.includes('alternating current') || q.includes('transformer') || q.includes('reactance') || q.includes('impedance')) {
+    return `<b>Magnetic Effects + Alternating Current – Class 12 Physics (~9–11 marks)</b><br><br>
+    • Biot-Savart: dB = μ₀/4π (Idℓ sinθ)/r²<br>
+    • Ampere: ∫B·dl = μ₀ I_enclosed<br>
+    • Magnetic materials: Dia/Para/Ferro, hysteresis loop.<br>
+    • AC: I = I₀ sinωt, reactance XL = ωL, XC = 1/ωC, impedance Z.<br>
+    • Power: P_avg = V_rms I_rms cosφ, wattless current.<br>
+    • Transformer: Vs/Vp = Ns/Np, efficiency & losses.<br><br>
+    Exam tip: Derivations (toroid field, AC voltage across L/C/R) + numericals on power factor & transformer very common. Practice graphs too.<br>Ask for any proof or problem!`;
+}
+
+// ────────────── Class 12 Chemistry ──────────────
+// Solutions + Electrochemistry + Chemical Kinetics (high weightage ~23 marks combined)
+if (q.includes('solution') || q.includes('colligative') || q.includes('raoult') || q.includes('henry') || 
+    q.includes('electrochemistry') || q.includes('nernst') || q.includes('kohlrausch') || q.includes('conductance') || 
+    q.includes('kinetics') || q.includes('rate') || q.includes('order') || q.includes('arrhenius')) {
+    return `<b>Solutions + Electrochemistry + Chemical Kinetics – Class 12 Chemistry (~23 marks)</b><br><br>
+    • Raoult’s law: P = P⁰X, relative lowering = (P⁰–P)/P⁰ = x_solvent<br>
+    • Colligative: ΔT_b = K_b m, ΔT_f = K_f m, π = CRT, osmotic pressure.<br>
+    • Electrochemistry: E_cell = E°_cell – (RT/nF) ln Q (Nernst), conductivity κ = 1/ρ.<br>
+    • Kinetics: rate = k [A]^m [B]^n, half-life t½ ∝ 1/k for 1st order.<br>
+    • Arrhenius: k = Ae^(-Ea/RT)<br><br>
+    Exam tip: Numericals on depression/elevation, cell potential, integrated rate laws, half-life — 5–8 mark questions. Memorize formulas table.<br>Send values — I'll solve step-by-step!`;
+}
+
+// Aldehydes, Ketones & Carboxylic Acids + Amines (organic ~14 marks)
+if (q.includes('aldehyde') || q.includes('ketone') || q.includes('carboxylic') || q.includes('cannizzaro') || q.includes('aldol') || 
+    q.includes('amine') || q.includes('diazonium')) {
+    return `<b>Aldehydes, Ketones, Carboxylic Acids + Amines – Class 12 Chemistry (~14 marks)</b><br><br>
+    • Carbonyl reactivity: Nucleophilic addition, Aldol, Cannizzaro, Clemmensen, Wolf-Kishner.<br>
+    • Tests: Tollens’ (silver mirror), Fehling’s (red ppt), iodoform (CH₃CO– or CH₃CH(OH)–).<br>
+    • Carboxylic: Acidity order, esterification, decarboxylation.<br>
+    • Amines: Basicity (2° > 1° > 3° in gas, reverse in aq), diazotisation + Sandmeyer.<br><br>
+    Exam tip: Name reactions + conversions (5 marks chain) + distinguish tests very frequent. Draw flowcharts!<br>Want a conversion sequence or mechanism?`;
+}
+
+// ────────────── Class 12 Biology ──────────────
+// Molecular Basis of Inheritance + Human Reproduction (high weightage ~16 marks combined)
+if (q.includes('molecular basis') || q.includes('dna') || q.includes('replication') || q.includes('transcription') || q.includes('translation') || q.includes('lac operon') || 
+    q.includes('human reproduction') || q.includes('menstrual') || q.includes('gametogenesis') || q.includes('contraception')) {
+    return `<b>Molecular Basis of Inheritance + Human Reproduction – Class 12 Biology (~16 marks)</b><br><br>
+    • DNA: Semi-conservative replication, enzymes (helicase, ligase, polymerase).<br>
+    • Transcription: Promoter, terminator, post-transcription (capping, tailing, splicing).<br>
+    • Translation: Codon, anticodon, tRNA, ribosome.<br>
+    • Lac operon: Inducible, repressor, inducer (lactose).<br>
+    • Human repro: Spermatogenesis/oogenesis, menstrual cycle phases, hormonal control.<br>
+    • Contraception: Barriers, IUD, pills, surgical.<br><br>
+    Exam tip: Diagrams (DNA replication fork, lac operon, menstrual cycle, seminiferous tubule) — 5–7 marks easy. Learn flowcharts & differences.<br>Need any labelled diagram description?`;
+}
+
+// Principles of Inheritance + Evolution (~14–16 marks)
+if (q.includes('inheritance') || q.includes('mendel') || q.includes('pedigree') || q.includes('chromosomal') || 
+    q.includes('evolution') || q.includes('darwin') || q.includes('natural selection') || q.includes('origin of life')) {
+    return `<b>Principles of Inheritance & Evolution – Class 12 Biology (~14–16 marks)</b><br><br>
+    • Mendel: Monohybrid 3:1, Dihybrid 9:3:3:1, incomplete dominance, codominance.<br>
+    • Linkage & recombination, sex determination (XX-XY), chromosomal disorders (Down, Klinefelter).<br>
+    • Evolution: Darwin + Lamarck, natural selection, Hardy-Weinberg equilibrium p² + 2pq + q² = 1.<br>
+    • Evidences: Homologous/analogous organs, fossils, adaptive radiation.<br><br>
+    Exam tip: Punnett squares, pedigree analysis, Hardy-Weinberg numericals + short notes on evidences — direct 5–8 marks.<br>Give me a cross — I'll solve it!`;
+}
+
+// ────────────── Class 10 Science & Maths extras ──────────────
+// Light – Reflection & Refraction + Magnetic Effects (Class 10 high weightage ~12–13 marks each)
+if (q.includes('light') || q.includes('reflection') || q.includes('refraction') || q.includes('mirror') || q.includes('lens') || q.includes('magnification') || 
+    q.includes('magnetic effect') || q.includes('motor') || q.includes('generator') || q.includes('fleming')) {
+    return `<b>Light + Magnetic Effects of Electric Current – Class 10 Science (~12–13 marks each)</b><br><br>
+    • Mirror formula: 1/f = 1/v + 1/u, m = –v/u<br>
+    • Lens: 1/f = 1/v – 1/u, power P = 1/f (m⁻¹)<br>
+    • Refraction: Snell’s law n = sin i / sin r<br>
+    • Magnetic: Right-hand thumb rules (Fleming’s left/right), DC motor, AC generator, electromagnetic induction.<br><br>
+    Exam tip: Ray diagrams (convex/concave mirror/lens for different positions) + motor/generator working — 5-mark favourites.<br>Want ray diagram steps or numerical?`;
+}
+
+// Metals & Non-metals + Carbon Compounds (Class 10 Chemistry ~12–14 marks combined)
+if (q.includes('metal') || q.includes('non-metal') || q.includes('reactivity') || q.includes('corrosion') || 
+    q.includes('covalent') || q.includes('soap') || q.includes('esterification')) {
+    return `<b>Metals & Non-metals + Carbon Compounds – Class 10 Chemistry (~12–14 marks)</b><br><br>
+    • Reactivity series, extraction (electrolysis for Al, reduction for Fe).<br>
+    • Properties: Metals malleable/ductile/conductors, non-metals opposite.<br>
+    • Carbon: Covalent bonding, allotropes, saturated/unsaturated, functional groups.<br>
+    • Soaps vs detergents, micelle, cleansing action.<br><br>
+    Exam tip: Differences table (metals vs non-metals), reactions of soaps, ethanol/ethanoic acid prep — easy 3–5 markers.<br>Ask for any reaction or difference!`;
+}
+    if (q.includes('dual nature') || q.includes('photoelectric') || q.includes('de broglie') || q.includes('einstein photoelectric')) {
+        return `<b>Dual Nature of Radiation & Matter – Class 12 Physics (~5–6 marks)</b><br><br>
+        • Photoelectric effect: E = hν – φ, stopping potential<br>
+        • Einstein equation & graphs<br>
+        • de Broglie wavelength: λ = h/p = h/mv<br>
+        • Davisson-Germer experiment<br><br>
+        Exam tip: Threshold frequency, work function numericals + graph questions are repeated. Want a graph description?`;
     }
+
+    // Atoms & Nuclei
+    if (q.includes('atoms') || q.includes('nuclei') || q.includes('bohr') || q.includes('radioactivity') || q.includes('binding energy')) {
+        return `<b>Atoms & Nuclei – Class 12 Physics</b><br><br>
+        • Bohr model: rₙ = n²h²/4πε₀mkZe², Eₙ = –13.6 Z²/n² eV<br>
+        • Radioactivity: α, β, γ decay, half-life, mean life<br>
+        • Binding energy curve, mass defect<br><br>
+        Important: Nuclear fission/fusion, decay series. Numerical on half-life common.`;
+    }
+
+    // Semiconductors
+    if (q.includes('semiconductor') || q.includes('pn junction') || q.includes('diode') || q.includes('transistor') || q.includes('logic gate')) {
+        return `<b>Semiconductor Electronics – Class 12 Physics (~6–8 marks)</b><br><br>
+        • p-n junction diode: forward & reverse bias<br>
+        • Transistor: NPN/PNP, common emitter characteristics<br>
+        • Logic gates: AND, OR, NOT, NAND, NOR<br><br>
+        Diagrams: p-n junction, transistor circuit, logic gate symbols & truth tables.<br>Exam tip: Truth tables + diode applications are easy scorers.`;
+    }
+
+    // Class 12 Chemistry – p-Block Elements
+    if (q.includes('p block') || q.includes('group 15') || q.includes('group 16') || q.includes('nitrogen') || q.includes('oxygen') || q.includes('halogen')) {
+        return `<b>p-Block Elements – Class 12 Chemistry (~8–10 marks high weightage)</b><br><br>
+        • Group 15: N₂ cycle, Ammonia Haber process, Nitric acid<br>
+        • Group 16: Ozone, Sulphur allotropes, H₂SO₄ contact process<br>
+        • Group 17: Interhalogen compounds, bleaching powder<br>
+        • Trends: Inert pair effect, oxidation states<br><br>
+        Exam tip: Preparation + properties of NH₃, HNO₃, H₂SO₄ are frequent. Want a reaction flow?`;
+    }
+
+    // Coordination Compounds
+    if (q.includes('coordination') || q.includes('ligand') || q.includes('isomerism') || q.includes('crystal field')) {
+        return `<b>Coordination Compounds – Class 12 Chemistry</b><br><br>
+        • Werner’s theory, Nomenclature<br>
+        • Isomerism: geometrical, optical, linkage<br>
+        • Crystal Field Splitting: octahedral vs tetrahedral<br>
+        • Valence Bond Theory vs CFT<br><br>
+        Important: Magnetic properties & colour of complexes.`;
+    }
+
+    // Aldehydes, Ketones & Carboxylic Acids
+    if (q.includes('aldehyde') || q.includes('ketone') || q.includes('carboxylic acid') || q.includes('cannizzaro') || q.includes('aldol')) {
+        return `<b>Aldehydes, Ketones & Carboxylic Acids – Class 12 Chemistry</b><br><br>
+        • Carbonyl reactivity order: Aldehyde > Ketone<br>
+        • Named reactions: Aldol, Cannizzaro, Clemmensen, Wolff-Kishner<br>
+        • Tests: Tollens’, Fehling’s, iodoform<br><br>
+        Exam tip: Conversion chain + name reactions = 5 marks guaranteed. Want a conversion map?`;
+    }
+
+    // Class 12 Biology – Biotechnology
+    if (q.includes('biotechnology') || q.includes('recombinant') || q.includes('restriction enzyme') || q.includes('plasmid') || q.includes('PCR')) {
+        return `<b>Biotechnology: Principles & Processes – Class 12 Biology (~6–8 marks)</b><br><br>
+        • Recombinant DNA technology<br>
+        • Tools: Restriction enzymes, Ligase, Vectors (plasmid)<br>
+        • Processes: PCR, Gel electrophoresis, Cloning<br><br>
+        Diagram: pBR322 plasmid, PCR cycle.<br>Exam tip: Steps of rDNA technology are repeated often.`;
+    }
+
+    // Ecology / Organisms & Environment
+    if (q.includes('ecology') || q.includes('ecosystem') || q.includes('biodiversity') || q.includes('succession') || q.includes('pollution')) {
+        return `<b>Organisms and Populations / Ecosystem / Biodiversity – Class 12 Biology</b><br><br>
+        • Population attributes: Natality, Mortality, Age pyramids<br>
+        • Ecosystem: Energy flow (10% rule), Pyramids<br>
+        • Succession: Primary vs Secondary<br>
+        • Pollution: Biomagnification, Eutrophication<br><br>
+        Diagrams: Pyramid of energy/number, succession stages. High weightage in 2026.`;
+    }
+
+    // Class 10 – Light Reflection & Refraction
+    if (q.includes('light') || q.includes('reflection') || q.includes('refraction') || q.includes('mirror') || q.includes('lens class 10')) {
+        return `<b>Light – Reflection and Refraction – Class 10 (~10–12 marks high weightage)</b><br><br>
+        • Laws of reflection & refraction<br>
+        • Mirror formula 1/f = 1/v + 1/u<br>
+        • Lens formula 1/f = 1/v – 1/u<br>
+        • Refractive index n = c/v = sin i / sin r<br><br>
+        Diagrams: Image formation by mirrors & lenses.<br>Exam tip: Sign convention + ray diagrams are must-practice.`;
+    }
+
+    // Our Environment
+    if (q.includes('environment') || q.includes('ozone') || q.includes('food chain') || q.includes('biodegradable')) {
+        return `<b>Our Environment – Class 10 Science</b><br><br>
+        • Food chain vs Food web<br>
+        • Ozone depletion: CFC, Montreal Protocol<br>
+        • Biodegradable vs Non-biodegradable<br>
+        • Waste management: 3R (Reduce, Reuse, Recycle)<br><br>
+        Easy 3–5 marks — focus on ozone & waste.`;
+    }
+
+    // Class 10 Maths – Triangles (Similarity)
+    if (q.includes('triangle') || q.includes('similarity') || q.includes('bpt') || q.includes('pythagoras theorem application')) {
+        return `<b>Triangles – Class 10 Maths (~8 marks)</b><br><br>
+        • Basic Proportionality Theorem (Thales’ theorem)<br>
+        • Similarity criteria: AAA, SSS, SAS<br>
+        • Pythagoras theorem proof & converse<br><br>
+        Exam tip: Area ratio = (side ratio)² — frequent numerical. Send a problem!`;
+    }
+
+    // Class 9 – Atoms & Molecules
+    if (q.includes('atom') || q.includes('molecule') || q.includes('mole') || q.includes('avogadro') || q.includes('atomic mass')) {
+        return `<b>Atoms and Molecules – Class 9 Chemistry</b><br><br>
+        • Mole concept: 1 mole = 6.022 × 10²³ particles<br>
+        • Atomic & molecular mass<br>
+        • Law of conservation of mass, definite proportions<br>
+        • Valency & writing chemical formulas<br><br>
+        Exam tip: Mole conversion numericals are repeated every year.`;
+    }
+
+    // Default – updated with more current popular queries
+    return `Got your doubt, Raj! 🤔<br><br>
+    I'm covering almost all major 2025-26 board chapters now.<br><br>
+    Try asking:<br>
+    • "p block group 15 important compounds"<br>
+    • "photoelectric effect graph class 12"<br>
+    • "biotechnology rDNA steps"<br>
+    • "light refraction ray diagram convex lens class 10"<br>
+    • "integration by substitution example"<br>
+    • "vectors dot product class 12"<br>
+    • "ozone depletion class 10"<br><br>
+    Just type chapter / class / exact question — detailed answer ready in seconds! 📖`;
+}
 
     // Default fallback with suggestions
     return `Got your question, Raj! 🤔<br><br>
