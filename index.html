@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Ten Solutions – Free CBSE Study Platform (9–12)</title>
     <meta name="description" content="Free NCERT Books, Solutions, Sample Papers, Previous Year Papers, Revision Notes & AI Assistant for CBSE 2025-26"/>
-
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
@@ -161,7 +160,6 @@
             color:white;
             margin-top:4rem;
         }
-
         /* Floating buttons */
         .fab {
             position: fixed;
@@ -204,7 +202,6 @@
         }
         .support-btn:hover::after { left: 0; }
         .ai-btn:hover::after { right: 0; }
-
         .modal {
             display: none;
             position: fixed;
@@ -263,7 +260,6 @@
         }
         .switch-link:hover { text-decoration: underline; }
         .welcome-msg { color: white; font-weight: bold; }
-
         #chatHistory {
             height: 350px;
             overflow-y: auto;
@@ -300,7 +296,6 @@
             border-radius: 6px;
             cursor: pointer;
         }
-
         @media (max-width: 768px) {
             .top-bar { flex-direction: column; }
             .main-nav { flex-direction: column; align-items: center; }
@@ -312,7 +307,6 @@
     </style>
 </head>
 <body>
-
 <header>
     <div class="top-bar">
         <div class="logo">Ten <span>Solutions</span></div>
@@ -358,7 +352,6 @@
         </div>
     </div>
 </header>
-
 <nav>
     <div class="main-nav">
         <a href="#home" class="active">Home</a>
@@ -370,22 +363,17 @@
         <a href="#revision-notes">Revision Notes</a>
     </div>
 </nav>
-
 <main>
     <h1 class="page-title" id="home">Ten Solutions</h1>
-
     <div class="intro-box">
         <p>Free CBSE study platform for Classes 9–12 — NCERT books, solutions, sample papers, previous year papers, revision notes and AI assistant. All from trusted sources. No ads, no fees.</p>
     </div>
-
     <!-- About Ten Solutions Section -->
     <div class="about-section" id="about">
         <h2>About Ten Solutions</h2>
         <p><strong>Ten Solutions</strong> is a completely free, student-first EdTech platform built to support CBSE students of Classes 9 to 12 in their academic journey, especially those preparing for board exams in 2025-26 and beyond.</p>
-
         <h3>Our Mission</h3>
         <p>We believe every student deserves access to high-quality, reliable study resources without any cost, ads, or hidden barriers. Our goal is to simplify CBSE learning and help you score better with confidence.</p>
-
         <h3>What We Offer</h3>
         <ul>
             <li><strong>Direct NCERT Books</strong> – Official viewer links to open textbooks instantly</li>
@@ -396,7 +384,6 @@
             <li><strong>AI Assistant</strong> – 24/7 smart helper that answers almost any NCERT question in detail</li>
             <li><strong>Support</strong> – Direct email connect to the founder for any help</li>
         </ul>
-
         <h3>Why Choose Ten Solutions?</h3>
         <ul>
             <li>100% Free – No subscription, no ads, no paywalls</li>
@@ -406,34 +393,28 @@
             <li>Regular Updates – Content aligned with latest 2025-26 syllabus & pattern</li>
             <li>Student-Centric – Built by someone who understands board exam pressure</li>
         </ul>
-
         <h3>Founder’s Note</h3>
-        <p>Hi, I'm Raj. I created Ten Solutions Ed Tech Platform because I saw how difficult it was for many students (including my juniors) to find free, reliable, and organized CBSE study material. This platform is my small effort to help you study smarter and stress less. Feel free to reach out anytime!</p>
-
+        <p>Hi Raj! I created Ten Solutions Ed Tech Platform because I saw how difficult it was for many students (including my juniors) to find free, reliable, and organized CBSE study material. This platform is my small effort to help you study smarter and stress less. Feel free to reach out anytime!</p>
         <p style="text-align:center; margin-top:2rem;">
             <a href="#books" style="background:#3498db; color:white; padding:12px 24px; border-radius:8px; text-decoration:none; margin:0 10px;">Start Studying Now</a>
             <a href="#aiModal" onclick="document.getElementById('aiModal').style.display='flex';" style="background:#27ae60; color:white; padding:12px 24px; border-radius:8px; text-decoration:none; margin:0 10px;">Ask AI Anything</a>
         </p>
     </div>
-
     <div class="class-section" id="books">
         <h2>Textbook – NCERT Books 2025-26</h2>
         <p>Click to open official NCERT viewer (chapters + PDF download inside).</p>
-
         <h3>Class 9</h3>
         <ul class="book-list">
             <li>Maths: <a href="https://ncert.nic.in/textbook.php?iemh1=0-15" target="_blank">Mathematics</a></li>
             <li>Science: <a href="https://ncert.nic.in/textbook.php?iesc1=0-16" target="_blank">Science</a></li>
             <li>English: <a href="https://ncert.nic.in/textbook.php?lebe1=0-11" target="_blank">Beehive</a> | <a href="https://ncert.nic.in/textbook.php?lemn1=0-10" target="_blank">Moments</a></li>
         </ul>
-
         <h3>Class 10</h3>
         <ul class="book-list">
             <li>Maths: <a href="https://ncert.nic.in/textbook.php?jemh1=0-15" target="_blank">Mathematics</a></li>
             <li>Science: <a href="https://ncert.nic.in/textbook.php?jesc1=0-16" target="_blank">Science</a></li>
             <li>English: <a href="https://ncert.nic.in/textbook.php?jefb1=0-11" target="_blank">First Flight</a> | <a href="https://ncert.nic.in/textbook.php?jeft1=0-10" target="_blank">Footprints without Feet</a></li>
         </ul>
-
         <h3>Class 11</h3>
         <ul class="book-list">
             <li>Maths: <a href="https://ncert.nic.in/textbook.php?kemh1=0-16" target="_blank">Mathematics</a></li>
@@ -441,7 +422,6 @@
             <li>Chemistry: <a href="https://ncert.nic.in/textbook.php?kech1=0-8" target="_blank">Part 1</a> | <a href="https://ncert.nic.in/textbook.php?kech2=0-6" target="_blank">Part 2</a></li>
             <li>Biology: <a href="https://ncert.nic.in/textbook.php?kebo1=0-9" target="_blank">Biology</a></li>
         </ul>
-
         <h3>Class 12</h3>
         <ul class="book-list">
             <li>Maths: <a href="https://ncert.nic.in/textbook.php?lemh1=0-9" target="_blank">Part 1</a> | <a href="https://ncert.nic.in/textbook.php?lemh2=0-8" target="_blank">Part 2</a></li>
@@ -449,10 +429,8 @@
             <li>Chemistry: <a href="https://ncert.nic.in/textbook.php?lech1=0-8" target="_blank">Part 1</a> | <a href="https://ncert.nic.in/textbook.php?lech2=0-6" target="_blank">Part 2</a></li>
             <li>Biology: <a href="https://ncert.nic.in/textbook.php?lebo1=0-13" target="_blank">Biology</a></li>
         </ul>
-
         <p>More subjects → <a href="https://ncert.nic.in/textbook.php" target="_blank">Official NCERT Portal</a></p>
     </div>
-
     <div class="class-section" id="textbook-solutions">
         <h2>Textbook Solution – NCERT Solutions</h2>
         <ul class="subject-list">
@@ -462,7 +440,6 @@
             <li><a href="https://www.learncbse.in/ncert-solutions-for-class-9/" target="_blank">Class 9</a></li>
         </ul>
     </div>
-
     <div class="class-section" id="sample-papers">
         <h2>Sample Paper – CBSE (2020–2026)</h2>
         <p>Official CBSE Sample Question Papers + Marking Schemes</p>
@@ -481,7 +458,6 @@
         </ul>
         <p>Tip: Practice 2023–2026 papers first as they match the current syllabus best.</p>
     </div>
-
     <div class="class-section" id="old-papers">
         <h2>Previous Year Question Papers – CBSE (2020–2025)</h2>
         <p>Actual board exam papers (Main + Compartment)</p>
@@ -501,7 +477,6 @@
         </ul>
         <p>Focus on 2023–2025 papers for closest match to 2026 boards.</p>
     </div>
-
     <div class="class-section" id="revision-notes">
         <h2>Revision Notes</h2>
         <p>Chapter-wise concise notes – aligned to latest CBSE syllabus 2025-26</p>
@@ -521,7 +496,6 @@
         <p>These notes are regularly updated by subject experts for the current academic year.</p>
     </div>
 </main>
-
 <!-- Support button – fixed at bottom-left -->
 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kumarsinghraj5903@gmail.com&su=Support%20Request%20from%20Ten%20Solutions&body=Hi%20Raj%2C%0A%0AFrom%20Ten%20Solutions%20Ed%20Tech%20Platform%0A%0AMy%20question%20/%20issue%20/%20feedback%3A%20%0A%0A%5BPlease%20write%20your%20query%20here%5D%0A%0AThanks%21%0A%0AMy%20name%3A%20...%0AMy%20class%3A%20...%0Akumarsinghraj5903@gmail.com"
    target="_blank" rel="noopener noreferrer"
@@ -531,25 +505,22 @@
         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
     </svg>
 </a>
-
 <!-- AI button – bottom-right -->
 <button class="fab ai-btn" id="aiBtn" title="AI Assistant of Ten Solutions">🤖</button>
-
 <!-- AI Modal -->
 <div id="aiModal" class="modal">
     <div class="modal-content">
         <span class="close" id="aiClose">×</span>
         <h2>AI Assistant of Ten Solutions</h2>
         <div id="chatHistory">
-            <div class="message ai-msg">Hello! 👋 I'm your AI Assistant of Ten Solutions.<br>Ask me anything from CBSE/NCERT Classes 9 to 12 — chapter explanations, formulas, derivations, solved examples, definitions, key points, diagrams description, exam tips... I'm here to help! 📚</div>
+            <div class="message ai-msg">Hello Raj! 👋 I'm your AI study buddy for CBSE 9–12.<br>Ask anything — chapter explanations, NCERT solutions, derivations, formulas, diagrams, differences, important questions, board exam tips... Let's score high in 2026 boards! 📚🔥</div>
         </div>
         <form id="aiForm">
-            <input type="text" id="aiInput" placeholder="Ask any question..." required autocomplete="off">
+            <input type="text" id="aiInput" placeholder="Ask any NCERT / CBSE question..." required autocomplete="off">
             <button type="submit" id="aiSend">Send</button>
         </form>
     </div>
 </div>
-
 <!-- Login Modal -->
 <div id="loginModal" class="modal">
     <div class="modal-content">
@@ -567,7 +538,6 @@
         <p class="switch-link" id="toRegister">Don't have an account? Register here</p>
     </div>
 </div>
-
 <!-- Register Modal -->
 <div id="registerModal" class="modal">
     <div class="modal-content">
@@ -589,11 +559,9 @@
         <p class="switch-link" id="toLogin">Already have an account? Login here</p>
     </div>
 </div>
-
 <footer>
-    <p>© 2026 Ten Solutions – Free CBSE Resources for Classes 9–12</p>
+    <p>© 2026 Ten Solutions – Free CBSE Resources for Classes 9–12 | Built with ❤️ in Rewa, MP</p>
 </footer>
-
 <script>
 // Modal handling
 document.querySelectorAll('.close').forEach(el => {
@@ -602,7 +570,6 @@ document.querySelectorAll('.close').forEach(el => {
 window.onclick = e => {
     if (e.target.classList.contains('modal')) e.target.style.display = 'none';
 };
-
 // Switch login ↔ register
 document.getElementById('toRegister').onclick = () => {
     document.getElementById('loginModal').style.display = 'none';
@@ -612,7 +579,6 @@ document.getElementById('toLogin').onclick = () => {
     document.getElementById('registerModal').style.display = 'none';
     document.getElementById('loginModal').style.display = 'flex';
 };
-
 // LocalStorage auth
 function updateUI(user) {
     document.getElementById('userActions').innerHTML = `
@@ -624,10 +590,8 @@ function updateUI(user) {
         location.reload();
     };
 }
-
 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 if (currentUser) updateUI(currentUser);
-
 document.getElementById('loginSubmit').onclick = () => {
     const email = document.getElementById('loginEmail').value.trim();
     const pass = document.getElementById('loginPassword').value;
@@ -640,7 +604,6 @@ document.getElementById('loginSubmit').onclick = () => {
         alert('Invalid email or password');
     }
 };
-
 document.getElementById('registerSubmit').onclick = () => {
     const name = document.getElementById('regName').value.trim();
     const email = document.getElementById('regEmail').value.trim();
@@ -654,12 +617,10 @@ document.getElementById('registerSubmit').onclick = () => {
     updateUI({name});
     document.getElementById('registerModal').style.display = 'none';
 };
-
-// === AI Chat Bot – Smart & direct answers ===
+// === Expanded AI Chat Bot – Covers more high-weightage chapters ===
 const chatHistory = document.getElementById('chatHistory');
 const aiForm = document.getElementById('aiForm');
 const aiInput = document.getElementById('aiInput');
-
 function addMessage(text, type) {
     const msg = document.createElement('div');
     msg.className = `message ${type}-msg`;
@@ -667,249 +628,166 @@ function addMessage(text, type) {
     chatHistory.appendChild(msg);
     chatHistory.scrollTop = chatHistory.scrollHeight;
 }
-
 function getAIResponse(question) {
     const q = question.toLowerCase().trim();
 
     // Greetings
     if (q.includes('hi') || q.includes('hello') || q.includes('hey') || q === '') {
-        return "Hello! 👋 I'm your AI Assistant of Ten Solutions.<br>Ask me anything from CBSE/NCERT Classes 9 to 12 — chapter explanations, formulas, derivations, solved examples, definitions, key points, diagrams description, exam tips... I'm here to help! 📚";
+        return "Hi Raj! 👋 Ready to crush CBSE 2026 boards?<br>Ask me NCERT doubts, formulas, derivations, important questions, diagram explanations, differences, or exam tricks — Classes 9 to 12. Let's go! 📚";
     }
-
-    // Help message
+    // Help
     if (q.includes('help') || q.includes('what can you') || q.includes('who are you') || q.includes('can you')) {
-        return "I can help with almost any NCERT/CBSE topic from Classes 9–12:<br>• Full chapter summaries & explanations<br>• Step-by-step solutions to exercises & examples<br>• Derivations, formulas, reactions<br>• Important definitions & key points<br>• Diagram descriptions<br>• Exam-oriented notes & tips<br>• Comparison tables, differences, flowcharts<br><br>Just ask your question!";
+        return "I'm your free 24/7 CBSE AI tutor!<br>I can:<br>• Explain full chapters<br>• Solve NCERT exercises step-by-step<br>• Give derivations & key formulas<br>• Describe diagrams<br>• Make comparison tables<br>• Share board exam tips & high-weightage topics<br><br>Just type your doubt — e.g. 'Explain ray optics class 12' or 'Solve x²-5x+6=0'";
     }
 
-    // Ray Optics / Lens / Mirror
+    // ────────────── Original + Expanded High-Weightage Topics ──────────────
+
     if (q.includes('ray optics') || q.includes('optics') || q.includes('lens') || q.includes('mirror') || q.includes('human eye') || q.includes('prism') || q.includes('dispersion')) {
-        return `<b>Ray Optics & Optical Instruments</b><br><br>
-        <b>Key formulas:</b><br>
-        • Mirror formula: 1/f = 1/v + 1/u<br>
-        • Lens formula: 1/f = 1/v – 1/u<br>
-        • Magnification (mirror): m = –v/u<br>
-        • Lens magnification: m = v/u<br>
-        • Lens power: P = 1/f (f in meters)<br>
-        • Snell’s law: n₁ sin i = n₂ sin r<br>
-        • Critical angle: sin C = 1/μ<br><br>
-        Covers: reflection/refraction on spherical surfaces, lens maker’s formula, prism deviation & dispersion, defects of vision (myopia, hypermetropia, presbyopia), optical instruments (microscope, telescope).<br><br>Need any part explained in detail?`;
+        return `<b>Ray Optics & Optical Instruments – Class 12 Physics (High weightage ~8–10 marks)</b><br><br>
+        <b>Core Formulas:</b><br>
+        • Mirror: 1/f = 1/v + 1/u<br>
+        • Lens: 1/f = 1/v – 1/u<br>
+        • Magnification: m = –v/u (mirror) | m = v/u (lens)<br>
+        • Power: P = 1/f (m⁻¹)<br>
+        • Lens maker: 1/f = (μ–1)(1/R₁ – 1/R₂)<br>
+        • Snell’s law: μ₁ sin i = μ₂ sin r<br><br>
+        Key diagrams: ray diagrams for convex/concave lens/mirror, microscope, astronomical telescope.<br>Exam tip: Practice numericals on combination of lenses & defects (myopia, hypermetropia).<br>Want a specific derivation or ray diagram description?`;
     }
 
-    // Electromagnetic Induction
     if (q.includes('electromagnetic induction') || q.includes('emi') || q.includes('faraday') || q.includes('lenz') || q.includes('inductance')) {
-        return `<b>Electromagnetic Induction</b><br><br>
-        • Faraday’s law: Induced emf = – rate of change of magnetic flux (ε = – dΦ/dt)<br>
-        • Lenz’s law: Induced current opposes change in flux<br>
-        • Motional emf in rod: ε = Bℓv<br>
-        • Self-inductance: ε = –L (di/dt)<br>
-        • Energy stored in inductor: ½ LI²<br><br>
-        Key concepts: Faraday & Henry experiments, eddy currents, damping, mutual inductance.<br><br>Want derivation of any formula or numerical help?`;
-    }
-
-    // Chemical Reactions
-    if (q.includes('chemical reactions') || q.includes('balancing') || q.includes('combination') || q.includes('decomposition') || q.includes('displacement') || q.includes('redox')) {
-        return `<b>Chemical Reactions & Equations</b><br><br>
-        Five major types:<br>
-        1. Combination<br>
-        2. Decomposition (thermal / electrolytic / photochemical)<br>
-        3. Displacement<br>
-        4. Double displacement<br>
-        5. Oxidation-Reduction (Redox)<br><br>
-        Also important: corrosion, rancidity, balancing chemical equations step-by-step.<br><br>Want help balancing any equation or understanding any type?`;
-    }
-
-    // Carbon & Compounds
-    if (q.includes('carbon') || q.includes('covalent') || q.includes('allotropes') || q.includes('soap') || q.includes('micelle')) {
-        return `<b>Carbon and its Compounds</b><br><br>
-        • Carbon shows catenation and tetravalency<br>
-        • Allotropes: Diamond (hard, insulator), Graphite (soft, conductor), Fullerenes, Graphene<br>
-        • Covalent bonds: single, double, triple<br>
-        • Saturated hydrocarbons: Alkanes (CnH2n+2)<br>
-        • Unsaturated: Alkenes (CnH2n), Alkynes (CnH2n-2)<br>
-        • Functional groups: alcohol (–OH), aldehyde (–CHO), ketone (>C=O), carboxylic acid (–COOH)<br>
-        • Soaps & detergents form micelles in water<br><br>
-        Ask about any compound, reaction or concept!`;
-    }
-
-    // Photosynthesis / Life Processes
-    if (q.includes('photosynthesis') || q.includes('respiration') || q.includes('life processes') || q.includes('nutrition') || q.includes('transportation')) {
-        return `<b>Photosynthesis / Life Processes</b><br><br>
-        Equation: 6CO₂ + 12H₂O → C₆H₁₂O₆ + 6O₂ + 6H₂O<br><br>
-        Two stages:<br>
-        1. Light reaction: occurs in thylakoid, produces ATP, NADPH, oxygen (photolysis of water)<br>
-        2. Dark reaction / Calvin cycle: fixes CO₂ into glucose using RuBisCO<br><br>
-        Important: C3 vs C4 pathway, photorespiration, factors affecting rate.<br><br>Want detailed explanation of any part or diagram description?`;
-    }
-
-    // Quadratic Equations
-    if (q.includes('quadratic') || q.includes('x²') || q.match(/solve.*=/i) || q.includes('roots') || q.includes('discriminant')) {
-        return `<b>Quadratic Equations</b><br><br>
-        Standard form: ax² + bx + c = 0<br><br>
-        • Discriminant: D = b² – 4ac<br>
-        • Roots: x = [–b ± √D] / (2a)<br>
-        • Nature of roots:<br>
-           D > 0 → two distinct real roots<br>
-           D = 0 → repeated root<br>
-           D < 0 → no real roots<br><br>
-        Send your equation — I'll solve it step-by-step with explanation!`;
-    }function getAIResponse(question) {
-    const q = question.toLowerCase().trim();
-
-    // ───────────────────────────────────────────────
-    // Existing handlers (keep them as-is)
-    // ───────────────────────────────────────────────
-    if (q.includes('hi') || q.includes('hello') || q.includes('hey') || q === '') {
-        return "Hello! 👋 I'm your AI Assistant of Ten Solutions.<br>Ask me anything from CBSE/NCERT Classes 9 to 12 — chapter explanations, formulas, derivations, solved examples, definitions, key points, diagrams description, exam tips... I'm here to help! 📚";
-    }
-    if (q.includes('help') || q.includes('what can you') || q.includes('who are you') || q.includes('can you')) {
-        return "I can help with almost any NCERT/CBSE topic from Classes 9–12:<br>• Full chapter summaries & explanations<br>• Step-by-step solutions to exercises & examples<br>• Derivations, formulas, reactions<br>• Important definitions & key points<br>• Diagram descriptions<br>• Exam-oriented notes & tips<br>• Comparison tables, differences, flowcharts<br><br>Just ask your question!";
-    }
-    if (q.includes('ray optics') || q.includes('optics') || q.includes('lens') || q.includes('mirror') || q.includes('human eye') || q.includes('prism') || q.includes('dispersion')) {
-        return `<b>Ray Optics & Optical Instruments (Class 12 Physics)</b><br><br>
-        <b>Key formulas:</b><br>
-        • Mirror formula: 1/f = 1/v + 1/u<br>
-        • Lens formula: 1/f = 1/v – 1/u<br>
-        • Magnification (mirror): m = –v/u<br>
-        • Lens magnification: m = v/u<br>
-        • Power: P = 1/f (f in meters)<br>
-        • Snell’s law: n₁ sin i = n₂ sin r<br>
-        • Critical angle: sin C = 1/μ<br><br>
-        Covers: reflection/refraction, lens maker’s formula, prism deviation, defects of vision, microscope/telescope ray diagrams.<br><br>Ask for any derivation or numerical!`;
-    }
-    if (q.includes('electromagnetic induction') || q.includes('emi') || q.includes('faraday') || q.includes('lenz') || q.includes('inductance')) {
-        return `<b>Electromagnetic Induction (Class 12 Physics)</b><br><br>
-        • Faraday’s law: ε = – dΦ/dt<br>
-        • Lenz’s law: opposes change in flux<br>
+        return `<b>Electromagnetic Induction – Class 12 Physics</b><br><br>
+        • Faraday: ε = –dΦ/dt<br>
+        • Lenz: Induced current opposes flux change<br>
         • Motional emf: ε = Bℓv<br>
-        • Self-inductance: ε = –L (di/dt)<br>
-        • Energy in inductor: ½ LI²<br><br>
-        Key: eddy currents, damping, mutual inductance.<br><br>Need a derivation?`;
-    }
-    if (q.includes('chemical reactions') || q.includes('balancing') || q.includes('combination') || q.includes('decomposition') || q.includes('displacement') || q.includes('redox')) {
-        return `<b>Chemical Reactions & Equations (Class 10 Chemistry)</b><br><br>
-        Types: Combination, Decomposition, Displacement, Double displacement, Redox.<br>
-        Important: balancing equations, corrosion, rancidity.<br><br>Send any equation — I'll balance + explain type!`;
-    }
-    if (q.includes('carbon') || q.includes('covalent') || q.includes('allotropes') || q.includes('soap') || q.includes('micelle')) {
-        return `<b>Carbon and its Compounds (Class 10 Chemistry)</b><br><br>
-        • Catenation & tetravalency<br>
-        • Allotropes: Diamond, Graphite, Fullerenes<br>
-        • Hydrocarbons: Alkanes (CnH₂ₙ₊₂), Alkenes (CnH₂ₙ), Alkynes (CnH₂ₙ₋₂)<br>
-        • Functional groups: –OH, –CHO, >C=O, –COOH<br>
-        • Soaps: micelle formation<br><br>Ask about naming, reactions, or isomers!`;
-    }
-    if (q.includes('photosynthesis') || q.includes('respiration') || q.includes('life processes') || q.includes('nutrition') || q.includes('transportation')) {
-        return `<b>Life Processes – Photosynthesis (Class 10 Biology)</b><br><br>
-        Equation: 6CO₂ + 12H₂O → C₆H₁₂O₆ + 6O₂ + 6H₂O<br>
-        Stages: Light reaction (ATP, NADPH, O₂), Dark reaction (Calvin cycle)<br>
-        Key: C3 vs C4 plants, factors affecting rate.<br><br>Want stomata diagram or respiration comparison?`;
-    }
-    if (q.includes('quadratic') || q.includes('x²') || q.match(/solve.*=/i) || q.includes('roots') || q.includes('discriminant')) {
-        return `<b>Quadratic Equations (Class 10 Maths)</b><br><br>
-        ax² + bx + c = 0<br>
-        • D = b² – 4ac<br>
-        • Roots: x = [–b ± √D] / (2a)<br>
-        Nature: D>0 (distinct), D=0 (equal), D<0 (no real)<br><br>Send your equation — step-by-step solution coming!`;
+        • Self inductance: ε = –L di/dt<br>
+        • Energy: ½ LI²<br><br>
+        Important: Eddy currents, transformer principle.<br>Exam tip: 4–6 marks often from derivations + numericals.<br>Ask for any proof!`;
     }
 
-    // ───────────────────────────────────────────────
-    // NEW TOPICS – High-priority additions
-    // ───────────────────────────────────────────────
-
-    // Class 10 Science – Very high weightage
-    if (q.includes('electricity') || q.includes('current') || q.includes('ohm') || q.includes('resistance') || q.includes('circuit')) {
-        return `<b>Electricity (Class 10 Physics – Very Important!)</b><br><br>
+    if (q.includes('electricity') || q.includes('current') || q.includes('ohm') || q.includes('resistance') || q.includes('circuit') || q.includes('electric power')) {
+        return `<b>Electricity – Class 10 Physics (Very high weightage ~7–8 marks)</b><br><br>
         • Ohm’s law: V = IR<br>
-        • Resistance: R = ρℓ/A<br>
-        • Series: Req = R1 + R2 + ...<br>
-        • Parallel: 1/Req = 1/R1 + 1/R2 + ...<br>
+        • Resistivity: ρ = R·A/ℓ<br>
+        • Series: R_eq = R₁ + R₂ + …<br>
+        • Parallel: 1/R_eq = 1/R₁ + 1/R₂ + …<br>
         • Power: P = VI = I²R = V²/R<br>
-        • Heating effect: H = I²Rt<br><br>
-        Diagrams: series/parallel circuits, electric fuse.<br>Most asked: numericals on resistance combination & bill calculation.<br>Ask for solved example!`;
+        • Heating: H = I²Rt<br><br>
+        Diagrams: Series/parallel circuits, electric fuse.<br>Most repeated: Resistance combination numericals & power consumption.<br>Send values — I'll solve!`;
     }
 
-    if (q.includes('acid') || q.includes('base') || q.includes('salt') || q.includes('ph') || q.includes('neutralization')) {
-        return `<b>Acids, Bases and Salts (Class 10 Chemistry – High scoring)</b><br><br>
-        • pH scale: 0–14 (acid <7, base >7)<br>
-        • Indicators: litmus, phenolphthalein, methyl orange<br>
-        • Neutralization: Acid + Base → Salt + Water<br>
-        • Common salts: NaCl, NaHCO₃, CaOCl₂, plaster of Paris<br><br>
-        Important reactions: HCl + NaOH, baking soda + acid.<br>Want pH calculation or lab prep tips?`;
-    }
-
-    if (q.includes('heredity') || q.includes('evolution') || q.includes('mendel') || q.includes('gene') || q.includes('dna')) {
-        return `<b>Heredity and Evolution (Class 10 Biology – Diagram heavy)</b><br><br>
-        • Mendel’s laws: Segregation, Independent assortment<br>
-        • Monohybrid cross: 3:1 ratio<br>
-        • Dihybrid: 9:3:3:1<br>
-        • Sex determination: XX/XY<br>
-        • Evolution: Darwin, speciation, fossils<br><br>
-        Must-draw: Punnett square, homologous organs.<br>Ask for any cross or difference table!`;
-    }
-
-    // Class 12 – Board favorites
     if (q.includes('electrostatics') || q.includes('electric field') || q.includes('potential') || q.includes('capacitor') || q.includes('gauss')) {
-        return `<b>Electrostatics (Class 12 Physics – High weightage)</b><br><br>
-        • Coulomb’s law: F = k q₁q₂/r²<br>
-        • Electric field: E = F/q = kQ/r²<br>
-        • Potential: V = kQ/r<br>
-        • Capacitance: C = Q/V, parallel plate C = ε₀A/d<br>
-        • Gauss’s law: Φ = Q/ε₀<br><br>
-        Key derivations: field due to dipole, equipotential surfaces.<br>Want numerical or diagram explanation?`;
+        return `<b>Electrostatics – Class 12 Physics (High weightage ~8 marks)</b><br><br>
+        • Coulomb: F = k |q₁q₂|/r²<br>
+        • E = kQ/r² (point charge)<br>
+        • V = kQ/r<br>
+        • Capacitance: C = Q/V<br>
+        • Parallel plate: C = ε₀A/d<br>
+        • Gauss: ∫E·dA = Q_enclosed/ε₀<br><br>
+        Key: Electric dipole field & potential, equipotential surfaces.<br>Exam tip: Practice Gauss law applications & capacitance numericals.`;
     }
 
-    if (q.includes('coordination') || q.includes('nervous') || q.includes('hormone') || q.includes('endocrine') || q.includes('reflex')) {
-        return `<b>Control and Coordination (Class 10) / Human Physiology (Class 11–12)</b><br><br>
-        • Nervous system: neurons, synapse, reflex arc<br>
-        • Brain parts: cerebrum, cerebellum, medulla<br>
-        • Hormones: Insulin (pancreas), Thyroxine (thyroid), Adrenaline<br>
-        • Feedback mechanism<br><br>
-        Diagram: neuron, reflex arc, brain — very important for 3–5 markers.<br>Ask for difference: nervous vs endocrine!`;
+    if (q.includes('acid') || q.includes('base') || q.includes('salt') || q.includes('ph') || q.includes('neutralization') || q.includes('indicator')) {
+        return `<b>Acids, Bases & Salts – Class 10 Chemistry (High scoring ~5–7 marks)</b><br><br>
+        • pH: 0–14 (acid <7, neutral=7, base >7)<br>
+        • Neutralization: Acid + Base → Salt + H₂O<br>
+        • Common chemicals: NaOH, HCl, Ca(OH)₂, NaHCO₃, CaOCl₂, Plaster of Paris<br><br>
+        Important reactions & tests: litmus, phenolphthalein.<br>Exam tip: Memorize pH of common substances & preparation of salts.`;
     }
 
-    if (q.includes('coordinate') || q.includes('geometry') || q.includes('distance') || q.includes('section') || q.includes('area')) {
-        return `<b>Coordinate Geometry (Class 10 & 11 Maths – Numericals heavy)</b><br><br>
-        • Distance: √[(x₂–x₁)² + (y₂–y₁)²]<br>
-        • Section formula: internal (m:n), external<br>
-        • Area of triangle: ½|x₁(y₂–y₃) + x₂(y₃–y₁) + x₃(y₁–y₂)|<br>
-        • Mid-point, centroid, collinearity<br><br>
-        Send points — I'll find distance, area, or equation!`;
+    if (q.includes('carbon') || q.includes('covalent') || q.includes('allotropes') || q.includes('soap') || q.includes('micelle') || q.includes('ethanol') || q.includes('ethanoic')) {
+        return `<b>Carbon & its Compounds – Class 10 Chemistry (Very important ~6–8 marks)</b><br><br>
+        • Allotropes: Diamond, Graphite, Fullerene<br>
+        • Hydrocarbons: Alkane CnH₂ₙ₊₂, Alkene CnH₂ₙ, Alkyne CnH₂ₙ₋₂<br>
+        • Functional groups: –OH (alcohol), –COOH (acid), >C=O (ketone)<br>
+        • Soaps: Micelle formation in water<br><br>
+        Key: IUPAC naming, addition/substitution reactions.<br>Ask for any conversion or reaction!`;
     }
 
-    if (q.includes('organic') || q.includes('haloalkane') || q.includes('alcohol') || q.includes('aldehyde') || q.includes('carboxylic')) {
-        return `<b>Organic Chemistry (Class 12 – Reactions & conversions)</b><br><br>
-        • Haloalkanes: SN1, SN2<br>
-        • Alcohols → Aldehydes → Carboxylic acids<br>
-        • Named reactions: Cannizzaro, Aldol, Clemmensen, Wolff-Kishner<br>
+    if (q.includes('organic') || q.includes('haloalkane') || q.includes('alcohol') || q.includes('aldehyde') || q.includes('carboxylic') || q.includes('named reaction')) {
+        return `<b>Organic Chemistry – Class 12 (High weightage conversions & reactions)</b><br><br>
+        • Haloalkane → Alcohol → Aldehyde → Acid<br>
+        • Named reactions: Cannizzaro, Aldol, Clemmensen, Reimer-Tiemann<br>
         • Tests: iodoform, Tollens’, Fehling’s<br><br>
-        Want conversion map or mechanism?`;
+        Exam tip: Practice conversion flowcharts — 5 marks guaranteed.<br>Want a specific mechanism?`;
     }
 
-    if (q.includes('biomolecule') || q.includes('protein') || q.includes('carbohydrate') || q.includes('enzyme') || q.includes('vitamin')) {
-        return `<b>Biomolecules (Class 12 Biology – Important for 5 markers)</b><br><br>
-        • Carbohydrates: glucose, sucrose, starch, cellulose<br>
-        • Proteins: peptide bond, denaturation<br>
-        • Enzymes: lock & key, factors affecting activity<br>
-        • Vitamins: A, B, C, D – deficiency diseases<br><br>
-        Table: Vitamin | Source | Deficiency<br>Ask for any!`;
+    if (q.includes('biomolecule') || q.includes('protein') || q.includes('carbohydrate') || q.includes('enzyme') || q.includes('vitamin') || q.includes('nucleic acid')) {
+        return `<b>Biomolecules – Class 12 Biology (Easy 5–7 marks)</b><br><br>
+        • Carbohydrates: Glucose, Sucrose, Starch, Cellulose<br>
+        • Proteins: Peptide bond, denaturation<br>
+        • Enzymes: Lock & key model<br>
+        • Vitamins: A (night blindness), B₁ (beriberi), C (scurvy), D (rickets)<br><br>
+        Exam tip: Learn deficiency diseases table — direct 3-marker questions.`;
     }
 
-    // More quick additions (expand as needed)
-    if (q.includes('motion') || q.includes('force') || q.includes('newton') || q.includes('law of motion')) {
-        return `<b>Force and Laws of Motion (Class 9) / Moving charges (Class 12)</b><br><br>
-        Newton’s laws, momentum, inertia, friction.<br>F = ma, impulse = Δp<br>Want free body diagram or numerical?`;
+    if (q.includes('heredity') || q.includes('evolution') || q.includes('mendel') || q.includes('gene') || q.includes('dna') || q.includes('punnett')) {
+        return `<b>Heredity & Evolution – Class 10 Biology (High weightage ~6–8 marks)</b><br><br>
+        • Mendel: Law of segregation, independent assortment<br>
+        • Monohybrid: 3:1, Dihybrid: 9:3:3:1<br>
+        • Sex determination: XX/XY<br>
+        • Evolution: Natural selection, speciation<br><br>
+        Must practice: Punnett square & homologous/analogous organs.<br>Send genotype — I'll show cross!`;
     }
 
-    if (q.includes('periodic') || q.includes('classification') || q.includes('element') || q.includes('group') || q.includes('period')) {
-        return `<b>Periodic Classification (Class 10/11 Chemistry)</b><br><br>
-        Modern periodic table: groups 1–18, periods 1–7<br>Trends: atomic radius ↓ across period, ↑ down group<br>Ionization energy, electronegativity.<br>Ask for trend explanation!`;
+    if (q.includes('photosynthesis') || q.includes('respiration') || q.includes('life processes') || q.includes('nutrition') || q.includes('transportation') || q.includes('excretion')) {
+        return `<b>Life Processes – Class 10 Biology</b><br><br>
+        Photosynthesis: 6CO₂ + 12H₂O → C₆H₁₂O₆ + 6O₂ + 6H₂O<br>
+        • Light reaction: ATP, NADPH, photolysis<br>
+        • Dark reaction: Calvin cycle<br><br>
+        Respiration: Aerobic vs Anaerobic.<br>Diagram: Stomata, human alimentary canal, nephron.<br>Ask for any part!`;
     }
 
-    // Default – improved
-    return `Got your question! 🤔<br><br>
-    I'm strong on NCERT Class 9–12 topics — especially Physics, Chemistry, Biology & Maths for board exams 2026.<br><br>
-    Try asking:<br>• "Explain human eye defects with diagram"<br>• "Solve quadratic equation x² - 5x + 6 = 0"<br>• "Derive lens maker formula"<br>• "Difference between mitosis and meiosis"<br>• "Balance Fe + H₂O → Fe₃O₄ + H₂"<br><br>
-    Tell me more details — chapter name, class, or exact doubt! 📖`;
+    if (q.includes('quadratic') || q.includes('x²') || q.match(/solve.*=/i) || q.includes('roots') || q.includes('discriminant')) {
+        return `<b>Quadratic Equations – Class 10 Maths</b><br><br>
+        ax² + bx + c = 0<br>
+        Discriminant D = b² – 4ac<br>
+        Roots: x = [–b ± √D]/(2a)<br>
+        Nature: D>0 (two real), D=0 (equal), D<0 (imaginary)<br><br>
+        Send your equation — step-by-step solution!`;
+    }
+
+    if (q.includes('coordinate') || q.includes('geometry') || q.includes('distance') || q.includes('section') || q.includes('area') || q.includes('centroid')) {
+        return `<b>Coordinate Geometry – Class 10/11 Maths (Numericals heavy)</b><br><br>
+        • Distance: √[(x₂–x₁)² + (y₂–y₁)²]<br>
+        • Section formula: ((nx₁+mx₂)/(m+n), (ny₁+my₂)/(m+n))<br>
+        • Area triangle: ½|x₁(y₂–y₃)+x₂(y₃–y₁)+x₃(y₁–y₂)|<br><br>
+        Send points — I'll calculate distance/area/equation!`;
+    }
+
+    if (q.includes('control') || q.includes('coordination') || q.includes('nervous') || q.includes('hormone') || q.includes('reflex') || q.includes('brain')) {
+        return `<b>Control & Coordination – Class 10 Biology</b><br><br>
+        • Neuron structure, synapse, reflex arc<br>
+        • Brain: Cerebrum, cerebellum, medulla<br>
+        • Hormones: Insulin, Thyroxine, Adrenaline, GH<br><br>
+        Diagram: Neuron, reflex arc, human brain — frequent 5-markers.<br>Difference: Nervous vs Endocrine system.`;
+    }
+
+    if (q.includes('periodic') || q.includes('classification') || q.includes('mendeleev') || q.includes('modern periodic')) {
+        return `<b>Periodic Classification – Class 10/11 Chemistry</b><br><br>
+        Modern periodic table: 18 groups, 7 periods<br>
+        Trends: Atomic radius decreases across period, increases down group<br>Ionization energy, electronegativity opposite to radius.<br>Exam tip: Learn trends — direct 3-mark questions.`;
+    }
+
+    if (q.includes('motion') || q.includes('force') || q.includes('newton') || q.includes('laws of motion') || q.includes('momentum')) {
+        return `<b>Force & Laws of Motion – Class 9 Physics</b><br><br>
+        • Newton’s 1st: Inertia<br>
+        • 2nd: F = ma<br>
+        • 3rd: Action-reaction<br>
+        • Momentum: p = mv, Impulse = Δp<br><br>
+        Free body diagrams & numericals very important.`;
+    }
+
+    // Default fallback with suggestions
+    return `Got your question, Raj! 🤔<br><br>
+    I'm loaded with CBSE 2025-26 high-weightage topics.<br><br>
+    Try asking:<br>
+    • Electricity numerical class 10<br>
+    • Ray optics ray diagram convex lens<br>
+    • Heredity monohybrid cross example<br>
+    • Biomolecules vitamins deficiency table<br>
+    • Organic conversion ethanol to ethanoic acid<br>
+    • Quadratic equation solve x²-7x+12=0<br><br>
+    Give me chapter/class or exact doubt — instant help coming! 🚀`;
 }
 
 // Submit handler
@@ -917,15 +795,11 @@ aiForm.onsubmit = e => {
     e.preventDefault();
     const question = aiInput.value.trim();
     if (!question) return;
-
     addMessage(question, 'user');
-
     const answer = getAIResponse(question);
-
     setTimeout(() => {
         addMessage(answer, 'ai');
-    }, 600 + Math.random() * 900);
-
+    }, 500 + Math.random() * 1200);
     aiInput.value = '';
 };
 
@@ -934,23 +808,22 @@ document.getElementById('aiBtn').onclick = () => {
     document.getElementById('aiModal').style.display = 'flex';
     aiInput.focus();
 };
-
 document.getElementById('aiClose').onclick = () => {
     document.getElementById('aiModal').style.display = 'none';
 };
 
-// First open message
+// Optional: First open welcome
 let firstOpen = true;
 document.getElementById('aiBtn').addEventListener('click', () => {
     if (firstOpen) {
         setTimeout(() => {
-            addMessage("I'm ready to answer any question from your NCERT books — board exam mode activated! 🔥", 'ai');
-        }, 1400);
+            addMessage("Board mode activated! 🔥 Ask anything — let's aim for 95+ in 2026!", 'ai');
+        }, 1200);
         firstOpen = false;
     }
 });
 
-// Login / Register modals
+// Login / Register buttons
 document.getElementById('loginBtn').onclick = () => document.getElementById('loginModal').style.display = 'flex';
 document.getElementById('registerBtn').onclick = () => document.getElementById('registerModal').style.display = 'flex';
 </script>
