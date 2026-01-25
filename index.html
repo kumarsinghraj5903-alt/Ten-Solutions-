@@ -1090,7 +1090,7 @@ function getAIResponse(question) {
         Exam tip: Mole conversion numericals are repeated every year.`;
     }
     // Default – updated with more current popular queries
-    return `Got your doubt !!!,🤔🤔<br><br>
+    return `Got your doubt, Raj! 🤔<br><br>
     I'm covering almost all major 2025-26 board chapters now.<br><br>
     Try asking:<br>
     • "p block group 15 important compounds"<br>
@@ -1135,89 +1135,6 @@ document.getElementById('aiBtn').addEventListener('click', () => {
 // Login / Register buttons
 document.getElementById('loginBtn').onclick = () => document.getElementById('loginModal').style.display = 'flex';
 document.getElementById('registerBtn').onclick = () => document.getElementById('registerModal').style.display = 'flex';
-<!-- Add before </body> -->
-
-<!-- Firebase SDK -->
-<script type="module">
-  // Import Firebase
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-  import { 
-    getAuth, 
-    createUserWithEmailAndPassword, 
-    signInWithEmailAndPassword,
-    sendEmailVerification,
-    onAuthStateChanged,
-    signOut
-  } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
-
-  const firebaseConfig = {
-    // ← Paste your config here
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
-  // Listen for auth state
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in
-      if (user.emailVerified) {
-        document.getElementById('userActions').innerHTML = `
-          <span class="welcome-msg">Welcome, ${user.email.split('@')[0]}</span>
-          <button class="logout-btn" id="logoutBtn">Logout</button>
-        `;
-        document.getElementById('logoutBtn').onclick = () => signOut(auth);
-      } else {
-        alert("Please verify your email first. Check your inbox/spam.");
-      }
-    } else {
-      // No user → show login/register buttons
-      document.getElementById('userActions').innerHTML = `
-        <button id="loginBtn">Login</button>
-        <button id="registerBtn">Register</button>
-      `;
-      attachButtonListeners();
-    }
-  });
-
-  function attachButtonListeners() {
-    document.getElementById('loginBtn')?.onclick = () => document.getElementById('loginModal').style.display = 'flex';
-    document.getElementById('registerBtn')?.onclick = () => document.getElementById('registerModal').style.display = 'flex';
-
-    document.getElementById('loginSubmit').onclick = async () => {
-      const email = document.getElementById('loginEmail').value.trim();
-      const pass = document.getElementById('loginPassword').value;
-      try {
-        await signInWithEmailAndPassword(auth, email, pass);
-        document.getElementById('loginModal').style.display = 'none';
-      } catch (err) {
-        alert(err.message);
-      }
-    };
-
-    document.getElementById('registerSubmit').onclick = async () => {
-      const name = document.getElementById('regName').value.trim();
-      const email = document.getElementById('regEmail').value.trim();
-      const pass = document.getElementById('regPassword').value;
-      try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, pass);
-        await sendEmailVerification(userCredential.user);
-        alert("Registration successful! Please check your email to verify.");
-        document.getElementById('registerModal').style.display = 'none';
-      } catch (err) {
-        alert(err.message);
-      }
-    };
-  }
-
-  // Initial call
-  attachButtonListeners});
 </script>
 </body>
 </html>
