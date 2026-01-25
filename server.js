@@ -49,3 +49,11 @@ fetch("https://your-project.vercel.app/api/chat", {
 });
 
 export default app;
+const firebaseConfig = {
+  apiKey: "AIzaSyxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  authDomain: "ten-solutions-2026.firebaseapp.com",
+  projectId: "ten-solutions-2026",
+  storageBucket: "ten-solutions-2026.firebasestorage.app",
+  messagingSenderId: "123456789012",
+  appId: "1:123456789012:web:abcdef1234567890abcdef"
+};
